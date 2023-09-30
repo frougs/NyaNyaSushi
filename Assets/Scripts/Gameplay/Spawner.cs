@@ -44,7 +44,8 @@ public class Spawner : MonoBehaviour
             GameObject sushiPrefab = sushiPrefabs[Random.Range(0, sushiPrefabs.Length)]; // Changed sushi to sushiPrefab
 
             Vector3 position = new Vector3();
-            position.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
+            //position.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
+            position.x = 0;
             position.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             position.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 

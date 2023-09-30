@@ -9,6 +9,7 @@ public class KnifeScript : MonoBehaviour
     private Touch touch;
     [SerializeField] GameObject knife;
     private Camera cam;
+    private string controls;
     private void Start(){
         cam = Camera.main;
     }
@@ -17,16 +18,34 @@ public class KnifeScript : MonoBehaviour
       if(Input.touchCount > 0){
         touch = Input.GetTouch(0);
         if(touch.phase == TouchPhase.Began){
-            touchPos = touch.position;
-            touchPos.z = 3f;
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(touchPos);
-            
-            knife.transform.position = worldPos;
+            controls = "mobile";
+            swiping = true;
         }
         if(touch.phase == TouchPhase.Ended){
+          swiping = false;
         }
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       }  
+
+      if(Input.GetMouseButtonDown(0)){
+        swiping = true;
+        controls = "pc";
+      }
+      if(Input.GetMouseButtonUp(0)){
+        swiping = false;
+      }
+
+      if(swiping){
+        if(controls == "mobile"){
+            touchPos = touch.position;
+        }
+        if(controls == "pc"){
+          touchPos = Input.mousePosition;
+        }
+        touchPos.z = 3f;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(touchPos);
+        knife.transform.position = worldPos;
+      }
     }
     
 }
