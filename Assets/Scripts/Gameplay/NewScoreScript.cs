@@ -13,15 +13,23 @@ public class NewScoreScript : MonoBehaviour
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("Sushi") && moving){
-            score +=1;
+        if(other.gameObject.CompareTag("Sushi") && moving && orders.sushiNumber != 0){
+            score +=10;
             orders.sushiNumber -= 1;
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("Sushi") && moving && orders.sushiNumber <= 0){
+            score -= 5;
+            Destroy(other.gameObject);
+        }
 
-        if(other.gameObject.CompareTag("Rice") && moving){
-            score +=1;
+        if(other.gameObject.CompareTag("Rice") && moving && orders.riceNumber != 0){
+            score +=10;
             orders.riceNumber -= 1;
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.CompareTag("Rice") && moving && orders.riceNumber <= 0){
+            score -= 5;
             Destroy(other.gameObject);
         }
     }
