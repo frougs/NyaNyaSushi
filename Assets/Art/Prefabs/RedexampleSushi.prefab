@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1618539750895506750}
   - component: {fileID: -5790768617659557479}
   m_Layer: 0
-  m_Name: exampleSushi
-  m_TagString: Rice
+  m_Name: RedexampleSushi
+  m_TagString: Sushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2069888411947140681
 MeshFilter:
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a1d3561a9e741e4459b61127ab92a74f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

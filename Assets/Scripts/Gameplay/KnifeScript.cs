@@ -10,10 +10,18 @@ public class KnifeScript : MonoBehaviour
     [SerializeField] GameObject knife;
     private Camera cam;
     private string controls;
+    //[SerializeField] Rigidbody rb;
+    private Vector3 oldPos;
+    private Vector3 newPos;
+    public bool moving;
+
     private void Start(){
         cam = Camera.main;
     }
     void Update(){
+
+      newPos = transform.position;
+
     //Handles movement/location of swiping the knife
       if(Input.touchCount > 0){
         touch = Input.GetTouch(0);
@@ -46,6 +54,27 @@ public class KnifeScript : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(touchPos);
         knife.transform.position = worldPos;
       }
+
+      float xVel = oldPos.x - newPos.x;
+      float yVel = oldPos.y - newPos.y;
+
+      if(xVel != 0 || yVel != 0 ){
+        moving = true;
+      }
+      else{
+        moving = false;
+      }
     }
+    private void OnCollisionEnter(Collision collision)
+   {
+        if(collision.gameObject.tag == "Sushi" && moving)
+        {
+            Destroy(collision.gameObject);
+        }
+   }
+
+   private void FixedUpdate(){
+    oldPos = transform.position;
+   }
     
 }
