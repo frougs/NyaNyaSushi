@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
             Destroy(sushi, maxLifetime); // Changed maxlifetime to maxLifetime
 
             float force = Random.Range(minForce, maxForce);
-            sushi.GetComponent<Rigidbody>().AddForce(sushi.transform.up * force, ForceMode.Impulse);
+            sushi.GetComponent<Rigidbody>().AddForce(transform.up * force, ForceMode.Impulse);
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
