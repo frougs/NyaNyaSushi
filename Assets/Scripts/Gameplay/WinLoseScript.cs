@@ -22,6 +22,9 @@ public class WinLoseScript : MonoBehaviour
     }
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
         lives = livesNum.lives;
         score = scoreScript.score;
         ordersComplete = orderScript.ordersComplete;
