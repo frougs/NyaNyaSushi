@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
 
             GameObject sushi = Instantiate(sushiPrefab, position, rotation); // Changed prefab to sushiPrefab
-            Destroy(sushi, maxLifetime); // Changed maxlifetime to maxLifetime
+            //Destroy(sushi, maxLifetime * Time.deltaTime); // Changed maxlifetime to maxLifetime
 
             float force = Random.Range(minForce, maxForce);
             sushi.GetComponent<Rigidbody>().AddForce(transform.up * force, ForceMode.Impulse);

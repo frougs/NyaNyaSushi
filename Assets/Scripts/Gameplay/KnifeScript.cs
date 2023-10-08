@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class KnifeScript : MonoBehaviour
 {
@@ -15,10 +16,21 @@ public class KnifeScript : MonoBehaviour
     private Vector3 newPos;
     public bool moving;
 
+    [SerializeField] TextMeshProUGUI debugging;
+
     private void Start(){
         cam = Camera.main;
     }
     void Update(){
+      if(transform.hasChanged){
+        moving = true;
+        transform.hasChanged = false;
+      }
+      else{
+        moving = false;
+      }
+
+      //debugging.text = "Moving: " +checkPosDelay;
 
       newPos = transform.position;
 
@@ -28,9 +40,11 @@ public class KnifeScript : MonoBehaviour
         if(touch.phase == TouchPhase.Began){
             controls = "mobile";
             swiping = true;
+            //moving = true;
         }
         if(touch.phase == TouchPhase.Ended){
           swiping = false;
+          //moving = false;
         }
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       }  
@@ -55,17 +69,18 @@ public class KnifeScript : MonoBehaviour
         knife.transform.position = worldPos;
       }
 
-      float xVel = oldPos.x - newPos.x;
-      float yVel = oldPos.y - newPos.y;
+      /*float xVel = Time.deltaTime * (oldPos.x - newPos.x);
+      float yVel = Time.deltaTime * (oldPos.y - newPos.y);
+      velocityTest = new Vector2(xVel, yVel).normalized;
 
-      if(xVel != 0 || yVel != 0 ){
+      if(velocityTest.x != 0 || velocityTest.y != 0 ){
         moving = true;
       }
       else{
         moving = false;
-      }
+      }*/
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
    {
         if(collision.gameObject.tag == "Sushi" && moving)
         {
@@ -74,7 +89,22 @@ public class KnifeScript : MonoBehaviour
    }
 
    private void FixedUpdate(){
-    oldPos = transform.position;
+    /*if(checkPosDelay <= .8){
+      oldPos = transform.position;
+      if(checkPosDelay <= 0){
+        if(oldPos != transform.position){
+          Debug.Log("MOVING");
+        }
+        else{
+          Debug.Log("NOT MOVING");
+        }
+        checkPosDelay = 1f;
+      }
+      
+    }*/
+
    }
+
+
     
 }

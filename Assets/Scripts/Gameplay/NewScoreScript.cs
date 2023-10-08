@@ -6,9 +6,11 @@ using TMPro;
 public class NewScoreScript : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    private int score;
+    public int score;
     private bool moving;
     [SerializeField] OrderScript orders;
+
+    [SerializeField] LivesScript lives;
     private void Start(){
         score = 0;
     }
