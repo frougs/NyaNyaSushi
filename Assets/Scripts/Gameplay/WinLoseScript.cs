@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinLoseScript : MonoBehaviour
 {
@@ -8,13 +9,17 @@ public class WinLoseScript : MonoBehaviour
     [SerializeField] NewScoreScript scoreScript;
     [SerializeField] OrderScript orderScript;
     [SerializeField] LivesScript livesNum;
-
+    [SerializeField] GameObject winObject;
+    [SerializeField] GameObject loseObject;
+    [SerializeField] GameObject dimObject;
     [SerializeField] int winScore;
     private int score;
     private bool ordersComplete;
     private int lives;
 
-    
+    void Start(){
+        Time.timeScale = 1;
+    }
     void Update()
     {
         lives = livesNum.lives;
@@ -31,10 +36,14 @@ public class WinLoseScript : MonoBehaviour
     }
 
     void Lose(){
-        Debug.Log("U lost");
+        Time.timeScale = 0;
+        loseObject.SetActive(true);
+        dimObject.SetActive(true);
     }
 
     void Win(){
-        Debug.Log("U win");
+        Time.timeScale = 0;
+        winObject.SetActive(true);
+        dimObject.SetActive(true);
     }
 }
