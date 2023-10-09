@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Nya Nya Sushi Bar
+  productName: Nya_Nya_Sushi_Bar_B
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -134,7 +134,9 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -8643966194364063671, guid: 1fadccae8e132d644b136b2e9151364c, type: 2}
+  - {fileID: 11400000, guid: 5d062b8825ee3fd42b1b832eb3784f4e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -154,8 +156,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.NyaNyaSushiBar
-    Standalone: com.DefaultCompany.Nya-Nya-Sushi-Bar
+    Android: com.DefaultCompany.Nya_Nya_Sushi_Bar_B
+    Standalone: com.DefaultCompany.Nya-Nya-Sushi-Bar-B
   buildNumber:
     Standalone: 0
     iPhone: 0
