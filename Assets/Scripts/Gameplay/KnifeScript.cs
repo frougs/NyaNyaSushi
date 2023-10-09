@@ -15,6 +15,7 @@ public class KnifeScript : MonoBehaviour
     private Vector3 oldPos;
     private Vector3 newPos;
     public bool moving;
+    private Vector2 velocityTest;
 
     [SerializeField] TextMeshProUGUI debugging;
 
@@ -69,7 +70,7 @@ public class KnifeScript : MonoBehaviour
         knife.transform.position = worldPos;
       }
 
-      /*float xVel = Time.deltaTime * (oldPos.x - newPos.x);
+      float xVel = Time.deltaTime * (oldPos.x - newPos.x);
       float yVel = Time.deltaTime * (oldPos.y - newPos.y);
       velocityTest = new Vector2(xVel, yVel).normalized;
 
@@ -78,7 +79,7 @@ public class KnifeScript : MonoBehaviour
       }
       else{
         moving = false;
-      }*/
+      }
     }
     private void OnTriggerEnter(Collider collision)
    {
