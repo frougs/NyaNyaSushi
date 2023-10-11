@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1618539750895506750}
   - component: {fileID: -1115066753783408188}
   m_Layer: 0
-  m_Name: RedexampleSushi
+  m_Name: exampleAvacado
   m_TagString: Tuna
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1d3561a9e741e4459b61127ab92a74f, type: 2}
+  - {fileID: 2100000, guid: 403a3d0e936d6da46aacbb112c1500a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

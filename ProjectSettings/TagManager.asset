@@ -9,6 +9,8 @@ TagManager:
   - Conveyor
   - Trash
   - Rice
+  - Tuna
+  - Avacado
   layers:
   - Default
   - TransparentFX

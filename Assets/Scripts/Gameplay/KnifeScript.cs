@@ -16,13 +16,14 @@ public class KnifeScript : MonoBehaviour
     private Vector3 newPos;
     public bool moving;
     private Vector2 velocityTest;
-
+    private float checkPosDelay = 1f;
     [SerializeField] TextMeshProUGUI debugging;
 
     private void Start(){
         cam = Camera.main;
     }
     void Update(){
+      checkPosDelay -= Time.deltaTime;
       if(transform.hasChanged){
         moving = true;
         transform.hasChanged = false;
@@ -90,19 +91,19 @@ public class KnifeScript : MonoBehaviour
    }
 
    private void FixedUpdate(){
-    /*if(checkPosDelay <= .8){
+    if(checkPosDelay <= .8){
       oldPos = transform.position;
       if(checkPosDelay <= 0){
         if(oldPos != transform.position){
-          Debug.Log("MOVING");
+          //Debug.Log("MOVING");
         }
         else{
-          Debug.Log("NOT MOVING");
+          //Debug.Log("NOT MOVING");
         }
         checkPosDelay = 1f;
       }
       
-    }*/
+    }
 
    }
 

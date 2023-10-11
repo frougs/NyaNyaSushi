@@ -5,40 +5,68 @@ using TMPro;
 
 public class OrderScript : MonoBehaviour
 {
-    public int sushiNumber;
+    public int fishNumber;
     public int riceNumber;
+    public int addonNumber;
     public int orderNumber;
     [Header("Text Objects")]
-    [SerializeField] TextMeshPro sushiText;
+    [SerializeField] TextMeshPro fishText;
     [SerializeField] TextMeshPro riceText;
+    [SerializeField] TextMeshPro addonText;
+    [SerializeField] TextMeshPro recipieName;
     [SerializeField] TextMeshPro orderNumberText;
+
+    [SerializeField] RecipiesScript recipies;
+
+    [SerializeField] private float gracePeriod;
+    [HideInInspector] public float graceCountdown;
+
+    [SerializeField] [Range(1, 5)] int numberOfRecipies;
+    private int selectedRecipie;
 
     [Header("Just for testing")]
     [SerializeField] int orderNums;
     public bool ordersComplete;
 
+    [HideInInspector] public string fishTextString;
+    [HideInInspector] public string addonTextString;
+
+    private GameObject[] fishInGame;
+    private GameObject[] riceInGame;
+
     private void Start(){
+        graceCountdown = gracePeriod;
         orderNumber = 1;
         GenerateOrder();
     }
 
     private void Update(){
-
+        //Debug.Log(graceCountdown);
+        graceCountdown -= Time.deltaTime;
+        if(graceCountdown <= 0){
+            graceCountdown = 0;
+        }
         orderNumberText.text = "Order #" +orderNumber.ToString();
-
-        sushiText.text = sushiNumber.ToString() +"X Sushi";
+        recipieName.text = "Recipie: " +recipies.recipieName;
+        fishText.text = fishNumber.ToString() +"X " + fishTextString;
         riceText.text = riceNumber.ToString() +"X Rice";
+        addonText.text = addonNumber.ToString() + "X " + addonTextString;
 
         if(riceNumber <= 0){
             riceNumber = 0;
         }
-        if(sushiNumber <=0){
-            sushiNumber = 0;
+        if(fishNumber <=0){
+            fishNumber = 0;
+        }
+        if(addonNumber <=0){
+            addonNumber = 0;
         }
 
-        if(sushiNumber == 0 && riceNumber == 0){
+        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0){
             orderNumber += 1;
             GenerateOrder();
+            graceCountdown = gracePeriod;
+            //ClearConveyor();
         }
 
         if(orderNumber == orderNums){
@@ -47,10 +75,23 @@ public class OrderScript : MonoBehaviour
     }
 
     void GenerateOrder(){
-        sushiNumber = Random.Range(1, 5);
-        riceNumber = Random.Range(1, 2);
+        Random.seed = System.DateTime.Now.Millisecond;
+        selectedRecipie = Random.Range(1, numberOfRecipies);
+        Debug.Log(selectedRecipie);
+        recipies.RecipieSelect(selectedRecipie);
+
 
     }
 
+    /*void ClearConveyor(){
+        sushiInGame = GameObject.FindGameObjectsWithTag("Sushi");
+            foreach(GameObject sushiObjects in sushiInGame){
+                Destroy(sushiObjects);
+        }
+        riceInGame = GameObject.FindGameObjectsWithTag("Rice");
+            foreach(GameObject riceObjects in riceInGame){
+                Destroy(riceObjects);
+            }
+    }*/
 
 }
