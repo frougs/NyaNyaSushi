@@ -6,16 +6,17 @@ public class TrashScript : MonoBehaviour
 {
     [SerializeField] LivesScript lives;
     [SerializeField] OrderScript order;
+    [HideInInspector] public string fishTag;
 
     void Update(){
 
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.GetComponent<Collider>().gameObject.tag == "Sushi" && order.sushiNumber == 0){
+        if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber == 0){
             Destroy(other.gameObject);
         }
-        else if(other.GetComponent<Collider>().gameObject.tag == "Sushi" && order.sushiNumber != 0){
+        else if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber != 0){
             if(order.graceCountdown <= 0){
                 lives.lives -= 1;
                 Destroy(other.gameObject);
@@ -36,6 +37,20 @@ public class TrashScript : MonoBehaviour
             else{
             Destroy(other.gameObject);
             }
+        }
+
+        if(other.GetComponent<Collider>().gameObject.tag == "Avacado" && order.addonNumber == 0){
+            Destroy(other.gameObject);
+        }
+        else if(other.GetComponent<Collider>().gameObject.tag == "Avacado" && order.addonNumber != 0){
+            if(order.graceCountdown <= 0){
+                lives.lives -= 1;
+                Destroy(other.gameObject);
+            }
+            else{
+            Destroy(other.gameObject);
+            }
+
         }
     }
 }
