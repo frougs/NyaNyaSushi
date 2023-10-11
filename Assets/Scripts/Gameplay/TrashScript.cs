@@ -16,16 +16,26 @@ public class TrashScript : MonoBehaviour
             Destroy(other.gameObject);
         }
         else if(other.GetComponent<Collider>().gameObject.tag == "Sushi" && order.sushiNumber != 0){
-            lives.lives -= 1;
+            if(order.graceCountdown <= 0){
+                lives.lives -= 1;
+                Destroy(other.gameObject);
+            }
+            else{
             Destroy(other.gameObject);
+            }
         }
 
         if(other.GetComponent<Collider>().gameObject.tag == "Rice" && order.riceNumber == 0){
             Destroy(other.gameObject);
         }
         else if(other.GetComponent<Collider>().gameObject.tag == "Rice" && order.riceNumber != 0){
-            lives.lives -=1;
+            if(order.graceCountdown <= 0){
+                lives.lives -= 1;
+                Destroy(other.gameObject);
+            }
+            else{
             Destroy(other.gameObject);
+            }
         }
     }
 }
