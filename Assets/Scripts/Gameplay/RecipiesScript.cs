@@ -12,6 +12,9 @@ public class RecipiesScript : MonoBehaviour
     [Header("Tuna Sushi Recipie")]
     [SerializeField] [Range(1, 5)] int maxTuna;
     [SerializeField] [Range(1, 3)] int maxTunaRice;
+    [Header("Salmon Sushi Recipie")]
+    [SerializeField] [Range(1,3)] int maxSalmon;
+    [SerializeField] [Range(1,2)] int maxSalmonRice;
     [Header("Tuna Sushi With Avacado")]
     [SerializeField] [Range(1, 3)] int maxATuna;
     [SerializeField] [Range(1, 2)] int maxARice;
@@ -21,6 +24,9 @@ public class RecipiesScript : MonoBehaviour
     public void RecipieSelect(int recipieNumber){
         if(recipieNumber == 1){
             TunaSushi();
+        }
+        if(recipieNumber == 2){
+            SalmonSushi();
         }
         /*else if(recipieNumber == 2){
             TunaSushiWithAvacado();
@@ -34,6 +40,15 @@ public class RecipiesScript : MonoBehaviour
         recipieName = "Tuna Sushi";
         trash.fishTag = "Tuna";
         score.fishTag = "Tuna";
+    }
+
+    void SalmonSushi(){
+        orders.fishNumber = Random.Range(1, maxSalmon);
+        orders.riceNumber = Random.Range(1, maxSalmonRice);
+        orders.fishTextString = "Salmon";
+        recipieName = "Salmon Sushi";
+        trash.fishTag = "Salmon";
+        score.fishTag = "Salmon";
     }
 
     /*void TunaSushiWithAvacado(){

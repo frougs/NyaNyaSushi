@@ -12,6 +12,7 @@ public class WinLoseScript : MonoBehaviour
     [SerializeField] GameObject winObject;
     [SerializeField] GameObject loseObject;
     [SerializeField] GameObject dimObject;
+    [SerializeField] NyakayamaAnimation animations;
     [SerializeField] int winScore;
     private int score;
     private bool ordersComplete;
@@ -31,10 +32,12 @@ public class WinLoseScript : MonoBehaviour
 
         if(score < 0 || lives <= 0){
             Lose();
+            animations.emotion = "sad";
         }
 
         if(ordersComplete || score == winScore){
             Win();
+            animations.emotion = "sad";
         }
     }
 

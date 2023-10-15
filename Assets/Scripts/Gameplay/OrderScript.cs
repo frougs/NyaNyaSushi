@@ -22,7 +22,7 @@ public class OrderScript : MonoBehaviour
     [HideInInspector] public float graceCountdown;
 
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
-    private int selectedRecipie;
+    [SerializeField] private int selectedRecipie;
 
     [Header("Just for testing")]
     [SerializeField] int orderNums;
@@ -75,9 +75,9 @@ public class OrderScript : MonoBehaviour
     }
 
     void GenerateOrder(){
-        Random.seed = System.DateTime.Now.Millisecond;
-        selectedRecipie = Random.Range(1, numberOfRecipies);
-        Debug.Log(selectedRecipie);
+        //Random.seed = System.DateTime.Now.Millisecond;
+        //selectedRecipie = Random.Range(1, numberOfRecipies);
+        //Debug.Log(selectedRecipie);
         recipies.RecipieSelect(selectedRecipie);
 
 

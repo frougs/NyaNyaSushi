@@ -6,6 +6,7 @@ public class TrashScript : MonoBehaviour
 {
     [SerializeField] LivesScript lives;
     [SerializeField] OrderScript order;
+    [SerializeField] NyakayamaAnimation animations;
     [HideInInspector] public string fishTag;
 
     void Update(){
@@ -19,6 +20,7 @@ public class TrashScript : MonoBehaviour
         else if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber != 0){
             if(order.graceCountdown <= 0){
                 lives.lives -= 1;
+                animations.emotion = "dizzy";
                 Destroy(other.gameObject);
             }
             else{
@@ -32,6 +34,7 @@ public class TrashScript : MonoBehaviour
         else if(other.GetComponent<Collider>().gameObject.tag == "Rice" && order.riceNumber != 0){
             if(order.graceCountdown <= 0){
                 lives.lives -= 1;
+                animations.emotion = "dizzy";
                 Destroy(other.gameObject);
             }
             else{
@@ -45,6 +48,7 @@ public class TrashScript : MonoBehaviour
         else if(other.GetComponent<Collider>().gameObject.tag == "Avacado" && order.addonNumber != 0){
             if(order.graceCountdown <= 0){
                 lives.lives -= 1;
+                animations.emotion = "dizzy";
                 Destroy(other.gameObject);
             }
             else{
