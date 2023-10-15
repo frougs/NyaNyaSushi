@@ -18,23 +18,27 @@ public class KnifeScript : MonoBehaviour
     private Vector2 velocityTest;
     private float checkPosDelay = 1f;
     [SerializeField] TextMeshProUGUI debugging;
+    private Vector3 lastPos;
+    private Rigidbody rb;
+    private Vector3 worldPos;
 
     private void Start(){
         cam = Camera.main;
+        rb = GetComponent<Rigidbody>();
     }
     void Update(){
+      debugging.text = moving.ToString();
       checkPosDelay -= Time.deltaTime;
-      if(transform.hasChanged){
+      /*if(transform.hasChanged){
         moving = true;
         transform.hasChanged = false;
       }
       else{
         moving = false;
-      }
+      }*/
 
-      //debugging.text = "Moving: " +checkPosDelay;
 
-      newPos = transform.position;
+      //newPos = touchPos;
 
     //Handles movement/location of swiping the knife
       if(Input.touchCount > 0){
@@ -67,11 +71,12 @@ public class KnifeScript : MonoBehaviour
           touchPos = Input.mousePosition;
         }
         touchPos.z = 3f;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(touchPos);
-        knife.transform.position = worldPos;
+        worldPos = Camera.main.ScreenToWorldPoint(touchPos);
+        //knife.transform.position = worldPos;
+        rb.MovePosition(worldPos);
       }
 
-      float xVel = Time.deltaTime * (oldPos.x - newPos.x);
+      /*float xVel = Time.deltaTime * (oldPos.x - newPos.x);
       float yVel = Time.deltaTime * (oldPos.y - newPos.y);
       velocityTest = new Vector2(xVel, yVel).normalized;
 
@@ -80,7 +85,23 @@ public class KnifeScript : MonoBehaviour
       }
       else{
         moving = false;
+      }*/
+
+      /*if(transform.position != lastPos){
+        moving = true;
       }
+      else{
+        moving = false;
+      }
+
+      lastPos = transform.position;*/
+      if(!rb.IsSleeping()){
+        moving = true;
+      }
+      else{
+        moving = false;
+      }
+
     }
     private void OnTriggerEnter(Collider collision)
    {
@@ -91,10 +112,13 @@ public class KnifeScript : MonoBehaviour
    }
 
    private void FixedUpdate(){
+
+
+      /*lastPos = transform.position;
     if(checkPosDelay <= .8){
-      oldPos = transform.position;
+      oldPos = touchPos;
       if(checkPosDelay <= 0){
-        if(oldPos != transform.position){
+        if(oldPos != touchPos){
           //Debug.Log("MOVING");
         }
         else{
@@ -103,9 +127,10 @@ public class KnifeScript : MonoBehaviour
         checkPosDelay = 1f;
       }
       
-    }
+    }*/
 
    }
+
 
 
     
