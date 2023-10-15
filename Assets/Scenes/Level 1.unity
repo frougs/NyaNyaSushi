@@ -1747,6 +1747,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756307450}
   m_CullTransparentMesh: 1
+--- !u!198 &758246275 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7984790845355600432, guid: 5827e662c2442ed428b599ec53efbe52,
+    type: 3}
+  m_PrefabInstance: {fileID: 7024124474676459323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838308828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,6 +4996,11 @@ PrefabInstance:
       propertyPath: animations
       value: 
       objectReference: {fileID: 1433040840}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: sweatSystem
+      value: 
+      objectReference: {fileID: 758246275}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5080,6 +5091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nyakayama
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021923555542925577, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.383
       objectReference: {fileID: 0}
     - target: {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
@@ -5176,8 +5192,14 @@ PrefabInstance:
       propertyPath: trash
       value: 
       objectReference: {fileID: 1978539581}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: selectedRecipie
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1701757807402048093, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4834668176334761182, guid: 5827e662c2442ed428b599ec53efbe52,

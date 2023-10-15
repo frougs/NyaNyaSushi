@@ -264,6 +264,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71057088}
   m_CullTransparentMesh: 1
+--- !u!198 &94740685 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7984790845355600432, guid: 5827e662c2442ed428b599ec53efbe52,
+    type: 3}
+  m_PrefabInstance: {fileID: 755696044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119530678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,6 +1207,11 @@ PrefabInstance:
       propertyPath: animations
       value: 
       objectReference: {fileID: 1384370329}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: sweatSystem
+      value: 
+      objectReference: {fileID: 94740685}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1862,6 +1873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nyakayama
       objectReference: {fileID: 0}
+    - target: {fileID: 1021923555542925577, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.416
+      objectReference: {fileID: 0}
     - target: {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: livesText
@@ -1872,11 +1888,6 @@ PrefabInstance:
       propertyPath: knifeObject
       value: 
       objectReference: {fileID: 180926499}
-    - target: {fileID: 2309871030350618439, guid: 5827e662c2442ed428b599ec53efbe52,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2408103283624339201, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: m_RootOrder
@@ -1932,16 +1943,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2641811779475535031, guid: 5827e662c2442ed428b599ec53efbe52,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2641811779475535031, guid: 5827e662c2442ed428b599ec53efbe52,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 10.77
-      objectReference: {fileID: 0}
     - target: {fileID: 4770637467204509737, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: dimObject
@@ -1972,18 +1973,9 @@ PrefabInstance:
       propertyPath: trash
       value: 
       objectReference: {fileID: 1978539581}
-    - target: {fileID: 6546323461018274821, guid: 5827e662c2442ed428b599ec53efbe52,
-        type: 3}
-      propertyPath: m_margin.z
-      value: -20.639042
-      objectReference: {fileID: 0}
-    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
-        type: 3}
-      propertyPath: selectedRecipie
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1701757807402048093, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4834668176334761182, guid: 5827e662c2442ed428b599ec53efbe52,

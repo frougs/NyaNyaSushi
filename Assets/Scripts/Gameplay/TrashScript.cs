@@ -8,6 +8,7 @@ public class TrashScript : MonoBehaviour
     [SerializeField] OrderScript order;
     [SerializeField] NyakayamaAnimation animations;
     [HideInInspector] public string fishTag;
+  
 
     void Update(){
 
@@ -57,4 +58,5 @@ public class TrashScript : MonoBehaviour
 
         }
     }
+
 }

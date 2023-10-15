@@ -15,6 +15,8 @@ public class OrderScript : MonoBehaviour
     [SerializeField] TextMeshPro addonText;
     [SerializeField] TextMeshPro recipieName;
     [SerializeField] TextMeshPro orderNumberText;
+    [SerializeField] ParticleSystem system1;
+    [SerializeField] ParticleSystem system2;
 
     [SerializeField] RecipiesScript recipies;
 
@@ -66,6 +68,8 @@ public class OrderScript : MonoBehaviour
             orderNumber += 1;
             GenerateOrder();
             graceCountdown = gracePeriod;
+            system1.Play();
+            system2.Play();
             //ClearConveyor();
         }
 

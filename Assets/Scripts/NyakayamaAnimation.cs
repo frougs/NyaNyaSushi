@@ -9,6 +9,7 @@ public class NyakayamaAnimation : MonoBehaviour
     [SerializeField] GameObject knifeObject;
     [HideInInspector] public string emotion;
     [SerializeField] Transform faceObject;
+    [SerializeField] ParticleSystem dreadSystem;
     private string facing;
     private float knifePos;
     // Start is called before the first frame update
@@ -55,6 +56,8 @@ public class NyakayamaAnimation : MonoBehaviour
             }
             if(emotion == "dizzy"){
                 faceAnimator.SetInteger("face_facing", 4);
+                dreadSystem.Play();
+
             }
             if(emotion == "sad"){
                 faceAnimator.SetInteger("face_facing", 2);
@@ -74,6 +77,8 @@ public class NyakayamaAnimation : MonoBehaviour
             }
             if(emotion == "dizzy"){
                 faceAnimator.SetInteger("face_facing", 33);
+                dreadSystem.Play();
+
             }
             if(emotion == "sad"){
                 faceAnimator.SetInteger("face_facing", 32);
@@ -92,6 +97,8 @@ public class NyakayamaAnimation : MonoBehaviour
             }
             if(emotion == "dizzy"){
                 faceAnimator.SetInteger("face_facing", 22);
+                dreadSystem.Play();
+
             }
             if(emotion == "sad"){
                 faceAnimator.SetInteger("face_facing", 23);
@@ -101,10 +108,14 @@ public class NyakayamaAnimation : MonoBehaviour
             }
             StartCoroutine(ResetFace());
         }
+
     }
 
     private IEnumerator ResetFace(){
         yield return new WaitForSeconds(1f);
         emotion = null;
     }
+
+
+
 }

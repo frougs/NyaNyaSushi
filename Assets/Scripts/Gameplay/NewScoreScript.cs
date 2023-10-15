@@ -11,6 +11,7 @@ public class NewScoreScript : MonoBehaviour
     [HideInInspector] public string fishTag;
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] OrderScript orders;
+    [SerializeField] ParticleSystem sweatSystem;
 
     [SerializeField] LivesScript lives;
     private void Start(){
@@ -26,6 +27,7 @@ public class NewScoreScript : MonoBehaviour
         else if (other.gameObject.CompareTag(fishTag) && moving && orders.fishNumber <= 0){
             //score -= 5;
             animations.emotion = "sad";
+            sweatSystem.Play();
             Destroy(other.gameObject);
         }
 
@@ -38,6 +40,7 @@ public class NewScoreScript : MonoBehaviour
         else if(other.gameObject.CompareTag("Rice") && moving && orders.riceNumber <= 0){
            // score -= 5;
            animations.emotion = "sad";
+           sweatSystem.Play();
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Avacado") && moving && orders.addonNumber != 0){
@@ -49,6 +52,7 @@ public class NewScoreScript : MonoBehaviour
         else if(other.gameObject.CompareTag("Avacado") && moving && orders.addonNumber <= 0){
             //score -= 5;
             animations.emotion = "sad";
+            sweatSystem.Play();
             Destroy(other.gameObject);
         }
     }
@@ -59,4 +63,5 @@ public class NewScoreScript : MonoBehaviour
 
         scoreText.text = "Score: "+ score.ToString();
     }
+
 }
