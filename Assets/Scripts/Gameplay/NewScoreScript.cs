@@ -12,19 +12,25 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] OrderScript orders;
     [SerializeField] ParticleSystem sweatSystem;
+    public List<string> sushiTags = new List<string>();
 
     [SerializeField] LivesScript lives;
     private void Start(){
+        sushiTags.Add("Tuna");
+        sushiTags.Add("Salmon");
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
+        if(sushiTags.Contains(other.gameObject.tag.ToString())){
+            Debug.Log("List contains the tag");
+        }
         if(other.gameObject.CompareTag(fishTag) && moving && orders.fishNumber != 0){
             score +=10;
             orders.fishNumber -= 1;
             animations.emotion = "excited";
             Destroy(other.gameObject);
         }
-        else if (other.gameObject.CompareTag(fishTag) && moving && orders.fishNumber <= 0){
+        else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag){
             //score -= 5;
             animations.emotion = "sad";
             sweatSystem.Play();

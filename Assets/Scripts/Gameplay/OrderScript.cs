@@ -15,8 +15,6 @@ public class OrderScript : MonoBehaviour
     [SerializeField] TextMeshPro addonText;
     [SerializeField] TextMeshPro recipieName;
     [SerializeField] TextMeshPro orderNumberText;
-    [SerializeField] ParticleSystem system1;
-    [SerializeField] ParticleSystem system2;
 
     [SerializeField] RecipiesScript recipies;
 
@@ -24,12 +22,12 @@ public class OrderScript : MonoBehaviour
     [HideInInspector] public float graceCountdown;
 
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
-    [SerializeField] private int selectedRecipie;
+    private int selectedRecipie;
 
     [Header("Just for testing")]
-    [SerializeField] int orderNums;
+    [SerializeField] float orderNums;
     public bool ordersComplete;
-
+    public bool endlessMode;
     [HideInInspector] public string fishTextString;
     [HideInInspector] public string addonTextString;
 
@@ -40,6 +38,9 @@ public class OrderScript : MonoBehaviour
         graceCountdown = gracePeriod;
         orderNumber = 1;
         GenerateOrder();
+        if(endlessMode){
+            orderNums = Mathf.Infinity;
+        }
     }
 
     private void Update(){
@@ -68,8 +69,6 @@ public class OrderScript : MonoBehaviour
             orderNumber += 1;
             GenerateOrder();
             graceCountdown = gracePeriod;
-            system1.Play();
-            system2.Play();
             //ClearConveyor();
         }
 
@@ -79,9 +78,10 @@ public class OrderScript : MonoBehaviour
     }
 
     void GenerateOrder(){
-        //Random.seed = System.DateTime.Now.Millisecond;
-        //selectedRecipie = Random.Range(1, numberOfRecipies);
-        //Debug.Log(selectedRecipie);
+        Random.InitState(System.DateTime.Now.Millisecond);
+        Random.State randomizer = Random.state;
+        selectedRecipie = Random.Range(1, numberOfRecipies+1);
+        Debug.Log(selectedRecipie);
         recipies.RecipieSelect(selectedRecipie);
 
 

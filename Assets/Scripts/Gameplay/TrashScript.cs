@@ -7,6 +7,7 @@ public class TrashScript : MonoBehaviour
     [SerializeField] LivesScript lives;
     [SerializeField] OrderScript order;
     [SerializeField] NyakayamaAnimation animations;
+    [SerializeField] GameObject knife;
     [HideInInspector] public string fishTag;
   
 
@@ -15,7 +16,7 @@ public class TrashScript : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber == 0){
+        if(knife.GetComponent<NewScoreScript>().sushiTags.Contains(other.gameObject.tag.ToString()) && order.fishNumber == 0){
             Destroy(other.gameObject);
         }
         else if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber != 0){
