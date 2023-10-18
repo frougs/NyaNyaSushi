@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class ConveyorScript : MonoBehaviour
 {
-    private bool moving;
+    [HideInInspector] public bool moving;
     private Vector3 sushiPos;
     [Header("Sushi Conveyor Speed")]
     [SerializeField] float sushiSpeed;
+    [HideInInspector] public float endlessAdjustment;
     Rigidbody rb;
     private Vector3 movement;
+    PufferScript puffer;
     OrderScript orders;
     private int orderNum;
 
     void Start(){
         rb = this.GetComponent<Rigidbody>();
         orders = FindObjectOfType<OrderScript>();
+        puffer = this.GetComponent<PufferScript>();
+
     }
     void Update()
     {
+        //if(puffer != null){
+           // moving = true;
+       // }
         orderNum = orders.orderNumber;
 
         sushiPos = transform.position;
@@ -27,7 +34,7 @@ public class ConveyorScript : MonoBehaviour
 
     void FixedUpdate(){
         if(moving){
-            sushiPos.z -= (sushiSpeed * orderNum) * Time.deltaTime;
+            sushiPos.z -= ((sushiSpeed * orderNum) - endlessAdjustment) * Time.deltaTime;
             transform.position = sushiPos;
         }
         

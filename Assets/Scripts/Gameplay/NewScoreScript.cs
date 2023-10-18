@@ -22,7 +22,7 @@ public class NewScoreScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other){
         if(sushiTags.Contains(other.gameObject.tag.ToString())){
-            Debug.Log("List contains the tag");
+            //Debug.Log("List contains the tag");
         }
         if(other.gameObject.CompareTag(fishTag) && moving && orders.fishNumber != 0){
             score +=10;

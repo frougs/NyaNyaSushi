@@ -29,9 +29,10 @@ public class RecipiesScript : MonoBehaviour
         else if(recipieNumber == 2){
             SalmonSushi();
         }
-        /*else if(recipieNumber == 2){
-            TunaSushiWithAvacado();
-        }*/
+        else if(recipieNumber == 3){
+            SushiWithAvacado();
+        }
+        orders.recipieText = recipieName;
     }
 
     void TunaSushi(){
@@ -52,7 +53,7 @@ public class RecipiesScript : MonoBehaviour
         score.fishTag = "Salmon";
     }
 
-    void TunaSushiWithAvacado(){
+    void SushiWithAvacado(){
         orders.fishNumber = Random.Range(1, maxAFish);
         orders.riceNumber = Random.Range(1, maxARice);
         orders.addonNumber = Random.Range(1, maxAvacado);
@@ -72,6 +73,7 @@ public class RecipiesScript : MonoBehaviour
             }
         orders.addonTextString = "Avacado";
         recipieName = rFishName.ToString() + " sushi with Avacado";
+        
         }
 
     }

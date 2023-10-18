@@ -14,6 +14,7 @@ public class OrderScript : MonoBehaviour
     [SerializeField] TextMeshPro riceText;
     [SerializeField] TextMeshPro addonText;
     [SerializeField] TextMeshPro recipieName;
+    [HideInInspector] public string recipieText;
     [SerializeField] TextMeshPro orderNumberText;
 
     [SerializeField] RecipiesScript recipies;
@@ -22,14 +23,24 @@ public class OrderScript : MonoBehaviour
     [HideInInspector] public float graceCountdown;
 
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
+    [SerializeField] int recipieOverride;
     private int selectedRecipie;
 
     [Header("Just for testing")]
     [SerializeField] float orderNums;
     public bool ordersComplete;
     public bool endlessMode;
+    [SerializeField] float endlessSpeedAdjustment;
     [HideInInspector] public string fishTextString;
     [HideInInspector] public string addonTextString;
+    [SerializeField] GameObject finishedTuna;
+    [SerializeField] GameObject finishedSalmon;
+    [SerializeField] GameObject finishedAvacado;
+    [SerializeField] ParticleSystem menuBoard1;
+    [SerializeField] ParticleSystem menuBoard2;
+    [SerializeField] ParticleSystem newOrder1;
+    [SerializeField] ParticleSystem newOrder2;
+
 
     private GameObject[] fishInGame;
     private GameObject[] riceInGame;
@@ -44,6 +55,36 @@ public class OrderScript : MonoBehaviour
     }
 
     private void Update(){
+        if(endlessMode){
+            ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
+            foreach(ConveyorScript g in sushiObjects){
+                g.endlessAdjustment = endlessSpeedAdjustment;
+            }
+        }
+
+
+        if(recipieText.Contains("Tuna")){
+            finishedTuna.SetActive(true);
+        }
+        else{
+            finishedTuna.SetActive(false);
+        }
+        if(recipieText.Contains("Salmon")){
+            finishedSalmon.SetActive(true);
+        }
+        else{
+            finishedSalmon.SetActive(false);
+        }
+        if(recipieText.Contains("Avacado")){
+            finishedAvacado.SetActive(true);
+        }
+        else{
+            finishedAvacado.SetActive(false);
+        }
+
+
+
+
         //Debug.Log(graceCountdown);
         graceCountdown -= Time.deltaTime;
         if(graceCountdown <= 0){
@@ -81,8 +122,16 @@ public class OrderScript : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
         selectedRecipie = Random.Range(1, numberOfRecipies+1);
+        if(recipieOverride != 0){
+            selectedRecipie = recipieOverride;
+        }
         Debug.Log(selectedRecipie);
         recipies.RecipieSelect(selectedRecipie);
+        menuBoard1.Play();
+        menuBoard2.Play();
+        newOrder1.Play();
+        newOrder2.Play();
+
 
 
     }

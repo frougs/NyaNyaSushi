@@ -9,14 +9,23 @@ public class TrashScript : MonoBehaviour
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] GameObject knife;
     [HideInInspector] public string fishTag;
+    private List<string> sushiTags = new List<string>();
   
 
     void Update(){
 
     }
 
+    void Start(){
+        foreach(string a in knife.GetComponent<NewScoreScript>().sushiTags){
+            sushiTags.Add(a);
+        }
+    }
+
     private void OnTriggerEnter(Collider other){
-        if(knife.GetComponent<NewScoreScript>().sushiTags.Contains(other.gameObject.tag.ToString()) && order.fishNumber == 0){
+        var colliderTag = other.gameObject.tag;
+        //Debug.Log(colliderTag);
+        if(sushiTags.Contains(colliderTag) && colliderTag != fishTag){
             Destroy(other.gameObject);
         }
         else if(other.GetComponent<Collider>().gameObject.tag == fishTag && order.fishNumber != 0){
