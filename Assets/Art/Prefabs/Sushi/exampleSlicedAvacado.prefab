@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1618539750895506750}
   - component: {fileID: -1115066753783408188}
   m_Layer: 0
-  m_Name: exampleAvacado
+  m_Name: exampleSlicedAvacado
   m_TagString: Avacado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 403a3d0e936d6da46aacbb112c1500a8, type: 2}
+  - {fileID: 2100000, guid: 1bf7cfe5f1e1f0b48a5efc069aa83c7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sushiSpeed: 0.5
+  endlessAdjustment: 0

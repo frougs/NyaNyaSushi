@@ -16,21 +16,23 @@ public class RecipiesScript : MonoBehaviour
     [SerializeField] [Range(1,3)] int maxSalmon;
     [SerializeField] [Range(1,2)] int maxSalmonRice;
     [Header("Tuna Sushi With Avacado")]
-    [SerializeField] [Range(1, 3)] int maxATuna;
+    [SerializeField] [Range(1, 3)] int maxAFish;
     [SerializeField] [Range(1, 2)] int maxARice;
     [SerializeField] [Range(1, 2)] int maxAvacado;
+    private string rFishName;
 
 
     public void RecipieSelect(int recipieNumber){
         if(recipieNumber == 1){
             TunaSushi();
         }
-        if(recipieNumber == 2){
+        else if(recipieNumber == 2){
             SalmonSushi();
         }
-        /*else if(recipieNumber == 2){
-            TunaSushiWithAvacado();
-        }*/
+        else if(recipieNumber == 3){
+            SushiWithAvacado();
+        }
+        orders.recipieText = recipieName;
     }
 
     void TunaSushi(){
@@ -51,12 +53,28 @@ public class RecipiesScript : MonoBehaviour
         score.fishTag = "Salmon";
     }
 
-    /*void TunaSushiWithAvacado(){
-        orders.fishNumber = Random.Range(1, maxATuna);
+    void SushiWithAvacado(){
+        orders.fishNumber = Random.Range(1, maxAFish);
         orders.riceNumber = Random.Range(1, maxARice);
         orders.addonNumber = Random.Range(1, maxAvacado);
+        var aFish = Random.Range(1, 2);
+
+            if(aFish == 1){
+                orders.fishTextString = "Tuna";
+                trash.fishTag = "Tuna";
+                score.fishTag = "Tuna";
+                rFishName = "Tuna";
+            }
+            else if(aFish == 2){
+                orders.fishTextString = "Salmon";
+                trash.fishTag = "Salmon";
+                score.fishTag = "Salmon";
+                rFishName = "Salmon";
+            }
         orders.addonTextString = "Avacado";
-        orders.fishTextString = "Tuna";
-        recipieName = "Tuna Sushi with Avacado";
-    }*/
-}
+        recipieName = rFishName.ToString() + " sushi with Avacado";
+        
+        }
+
+    }
+

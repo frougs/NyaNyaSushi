@@ -14,9 +14,8 @@ public class OrderScript : MonoBehaviour
     [SerializeField] TextMeshPro riceText;
     [SerializeField] TextMeshPro addonText;
     [SerializeField] TextMeshPro recipieName;
+    [HideInInspector] public string recipieText;
     [SerializeField] TextMeshPro orderNumberText;
-    [SerializeField] ParticleSystem system1;
-    [SerializeField] ParticleSystem system2;
 
     [SerializeField] RecipiesScript recipies;
 
@@ -24,25 +23,71 @@ public class OrderScript : MonoBehaviour
     [HideInInspector] public float graceCountdown;
 
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
-    [SerializeField] private int selectedRecipie;
+    [SerializeField] int recipieOverride;
+    private int selectedRecipie;
 
     [Header("Just for testing")]
-    [SerializeField] int orderNums;
+    [SerializeField] float orderNums;
     public bool ordersComplete;
-
+    public bool endlessMode;
+    [SerializeField] float endlessSpeedAdjustment;
     [HideInInspector] public string fishTextString;
     [HideInInspector] public string addonTextString;
+    [SerializeField] GameObject finishedTuna;
+    [SerializeField] GameObject finishedSalmon;
+    [SerializeField] GameObject finishedAvacado;
+    [SerializeField] ParticleSystem menuBoard1;
+    [SerializeField] ParticleSystem menuBoard2;
+    [SerializeField] ParticleSystem newOrder1;
+    [SerializeField] ParticleSystem newOrder2;
 
-    private GameObject[] fishInGame;
+
+    private GameObject[] tunaInGame;
+    private GameObject[] salmonInGame;
     private GameObject[] riceInGame;
+    private GameObject[] avacadoInGame;
+    private GameObject[] puffInGame;
 
     private void Start(){
         graceCountdown = gracePeriod;
         orderNumber = 1;
         GenerateOrder();
+        if(endlessMode){
+            orderNums = Mathf.Infinity;
+        }
     }
 
     private void Update(){
+        if(endlessMode){
+            ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
+            foreach(ConveyorScript g in sushiObjects){
+                g.endlessAdjustment = endlessSpeedAdjustment;
+            }
+        }
+
+
+        if(recipieText.Contains("Tuna")){
+            finishedTuna.SetActive(true);
+        }
+        else{
+            finishedTuna.SetActive(false);
+        }
+        if(recipieText.Contains("Salmon")){
+            finishedSalmon.SetActive(true);
+        }
+        else{
+            finishedSalmon.SetActive(false);
+        }
+        if(recipieText.Contains("Avacado")){
+            finishedAvacado.SetActive(true);
+        }
+        else{
+            finishedAvacado.SetActive(false);
+        }
+
+
+
+
         //Debug.Log(graceCountdown);
         graceCountdown -= Time.deltaTime;
         if(graceCountdown <= 0){
@@ -68,8 +113,6 @@ public class OrderScript : MonoBehaviour
             orderNumber += 1;
             GenerateOrder();
             graceCountdown = gracePeriod;
-            system1.Play();
-            system2.Play();
             //ClearConveyor();
         }
 
@@ -78,24 +121,46 @@ public class OrderScript : MonoBehaviour
         }
     }
 
-    void GenerateOrder(){
-        //Random.seed = System.DateTime.Now.Millisecond;
-        //selectedRecipie = Random.Range(1, numberOfRecipies);
-        //Debug.Log(selectedRecipie);
+    public void GenerateOrder(){
+        Random.InitState(System.DateTime.Now.Millisecond);
+        Random.State randomizer = Random.state;
+        selectedRecipie = Random.Range(1, numberOfRecipies+1);
+        if(recipieOverride != 0){
+            selectedRecipie = recipieOverride;
+        }
+        Debug.Log(selectedRecipie);
         recipies.RecipieSelect(selectedRecipie);
+        menuBoard1.Play();
+        menuBoard2.Play();
+        newOrder1.Play();
+        newOrder2.Play();
+
 
 
     }
 
-    /*void ClearConveyor(){
-        sushiInGame = GameObject.FindGameObjectsWithTag("Sushi");
-            foreach(GameObject sushiObjects in sushiInGame){
-                Destroy(sushiObjects);
+    public void ClearConveyor(){
+        tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
+        salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");
+        foreach(GameObject tuna in tunaInGame){
+            Destroy(tuna);
         }
+        foreach(GameObject salmon in salmonInGame){
+            Destroy(salmon);
+        }
+
         riceInGame = GameObject.FindGameObjectsWithTag("Rice");
             foreach(GameObject riceObjects in riceInGame){
                 Destroy(riceObjects);
             }
-    }*/
+        avacadoInGame = GameObject.FindGameObjectsWithTag("Avacado");
+        foreach(GameObject avacadoObjects in avacadoInGame){
+            Destroy(avacadoObjects);
+        }
+        puffInGame = GameObject.FindGameObjectsWithTag("Puffer");
+        foreach(GameObject pufferObjects in puffInGame){
+            Destroy(pufferObjects);
+        }
+    }
 
 }
