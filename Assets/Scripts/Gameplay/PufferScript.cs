@@ -12,13 +12,14 @@ public class PufferScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         objectUp = transform.up;
+        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(canJump){
-            rb.AddForce(objectUp * 0.15f, ForceMode.Impulse);
+            rb.AddForce(objectUp * 0.1f, ForceMode.Impulse);
         }
     }
 

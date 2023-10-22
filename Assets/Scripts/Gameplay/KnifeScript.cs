@@ -27,7 +27,7 @@ public class KnifeScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
     void Update(){
-      debugging.text = moving.ToString();
+      //debugging.text = moving.ToString();
       checkPosDelay -= Time.deltaTime;
       /*if(transform.hasChanged){
         moving = true;

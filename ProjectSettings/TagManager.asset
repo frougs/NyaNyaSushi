@@ -12,6 +12,7 @@ TagManager:
   - Tuna
   - Avacado
   - Salmon
+  - Puffer
   layers:
   - Default
   - TransparentFX

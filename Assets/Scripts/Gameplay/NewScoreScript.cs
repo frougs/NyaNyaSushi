@@ -13,6 +13,8 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] OrderScript orders;
     [SerializeField] ParticleSystem sweatSystem;
     public List<string> sushiTags = new List<string>();
+    [SerializeField] AudioSource knifeSource;
+    [SerializeField] AudioSource pufferSource;
 
     [SerializeField] LivesScript lives;
     private void Start(){
@@ -21,6 +23,10 @@ public class NewScoreScript : MonoBehaviour
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
+        if(moving){
+            knifeSource.Play();
+        }
+        
         if(sushiTags.Contains(other.gameObject.tag.ToString())){
             //Debug.Log("List contains the tag");
         }
@@ -60,6 +66,15 @@ public class NewScoreScript : MonoBehaviour
             animations.emotion = "sad";
             sweatSystem.Play();
             Destroy(other.gameObject);
+        }
+        else if(other.gameObject.CompareTag("Puffer") && moving){
+            animations.emotion = "dizzy";
+            sweatSystem.Play();
+            Destroy(other.gameObject);
+            pufferSource.Play();
+            orders.GenerateOrder();
+            lives.lives -= 1;
+            orders.ClearConveyor();
         }
     }
     private void Update(){

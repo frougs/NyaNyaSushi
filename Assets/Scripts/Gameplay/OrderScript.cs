@@ -42,8 +42,11 @@ public class OrderScript : MonoBehaviour
     [SerializeField] ParticleSystem newOrder2;
 
 
-    private GameObject[] fishInGame;
+    private GameObject[] tunaInGame;
+    private GameObject[] salmonInGame;
     private GameObject[] riceInGame;
+    private GameObject[] avacadoInGame;
+    private GameObject[] puffInGame;
 
     private void Start(){
         graceCountdown = gracePeriod;
@@ -118,7 +121,7 @@ public class OrderScript : MonoBehaviour
         }
     }
 
-    void GenerateOrder(){
+    public void GenerateOrder(){
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
         selectedRecipie = Random.Range(1, numberOfRecipies+1);
@@ -136,15 +139,28 @@ public class OrderScript : MonoBehaviour
 
     }
 
-    /*void ClearConveyor(){
-        sushiInGame = GameObject.FindGameObjectsWithTag("Sushi");
-            foreach(GameObject sushiObjects in sushiInGame){
-                Destroy(sushiObjects);
+    public void ClearConveyor(){
+        tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
+        salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");
+        foreach(GameObject tuna in tunaInGame){
+            Destroy(tuna);
         }
+        foreach(GameObject salmon in salmonInGame){
+            Destroy(salmon);
+        }
+
         riceInGame = GameObject.FindGameObjectsWithTag("Rice");
             foreach(GameObject riceObjects in riceInGame){
                 Destroy(riceObjects);
             }
-    }*/
+        avacadoInGame = GameObject.FindGameObjectsWithTag("Avacado");
+        foreach(GameObject avacadoObjects in avacadoInGame){
+            Destroy(avacadoObjects);
+        }
+        puffInGame = GameObject.FindGameObjectsWithTag("Puffer");
+        foreach(GameObject pufferObjects in puffInGame){
+            Destroy(pufferObjects);
+        }
+    }
 
 }
