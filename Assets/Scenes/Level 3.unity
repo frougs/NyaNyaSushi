@@ -4204,7 +4204,6 @@ MonoBehaviour:
   sushiPrefabs:
   - {fileID: 1099283815471098947, guid: 2aec08676129d2741a7f9141244c8916, type: 3}
   - {fileID: 744042815426004648, guid: 2f60f82716d66ec43b3db28768906c1c, type: 3}
-  - {fileID: 919132149155446097, guid: ea0d5a9c0ccaf714890b8a285e8146ed, type: 3}
   minSpawnDelay: 1
   maxSpawnDelay: 2
   minAngle: 0
