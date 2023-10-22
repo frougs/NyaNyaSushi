@@ -23,9 +23,9 @@ public class ConveyorScript : MonoBehaviour
     }
     void Update()
     {
-        //if(puffer != null){
-           // moving = true;
-       // }
+        if(puffer != null){
+           moving = true;
+        }
         orderNum = orders.orderNumber;
 
         sushiPos = transform.position;

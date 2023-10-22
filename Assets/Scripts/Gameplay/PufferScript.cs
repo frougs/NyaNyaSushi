@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PufferScript : MonoBehaviour
 {
-    private bool moving;
+    private bool canJump;
     private Rigidbody rb;
     private Vector3 objectUp;
     // Start is called before the first frame update
@@ -17,13 +17,23 @@ public class PufferScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moving = GetComponent<ConveyorScript>().moving;
-        if(moving){
-            rb.AddForce(objectUp * 0.5f, ForceMode.Impulse);
+        if(canJump){
+            rb.AddForce(objectUp * 0.15f, ForceMode.Impulse);
         }
     }
 
    /*private void OnCollisionEnter(Collider other){
         if(other.)
     }*/
+
+    private void OnTriggerEnter(Collider other){
+        if(other.GetComponent<Collider>().gameObject.tag == "Conveyor"){
+            canJump = true;
+        }
+    }
+    private void OnTriggerExit(Collider other){
+        if(other.GetComponent<Collider>().gameObject.tag == "Conveyor"){
+            canJump = false;
+        }
+    }
 }
