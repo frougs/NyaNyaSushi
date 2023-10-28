@@ -113,7 +113,7 @@ public class KnifeScript : MonoBehaviour
 
    private void FixedUpdate(){
 
-
+    
       /*lastPos = transform.position;
     if(checkPosDelay <= .8){
       oldPos = touchPos;
