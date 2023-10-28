@@ -6152,6 +6152,12 @@ PrefabInstance:
       objectReference: {fileID: 916465961}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
+      propertyPath: slices
+      value: 
+      objectReference: {fileID: 6019508372665994749, guid: 7eefe65936c05d9458f9d38cce97d899,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 612420160}
@@ -6419,7 +6425,7 @@ PrefabInstance:
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: numberOfRecipies
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6983540893009501166, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
