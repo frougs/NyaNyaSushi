@@ -97,21 +97,9 @@ public class OrderScript : MonoBehaviour
             finishedAvacado.SetActive(false);
         }
 
-
-        if(activeOrders < 2){
-            internalOrderCD -= Time.deltaTime;
-            if(internalOrderCD <= 0){
-                Debug.Log("Addon New Order");
-                activeOrders += 1;
-            }
             
-        }
 
-        //Debug.Log(graceCountdown);
-        graceCountdown -= Time.deltaTime;
-        if(graceCountdown <= 0){
-            graceCountdown = 0;
-        }
+
         orderNumberText.text = "Order #" +orderNumber.ToString();
         recipieName.text = "Recipie: " +recipies.recipieName;
         fishText.text = fishNumber.ToString() +"X";
@@ -143,10 +131,7 @@ public class OrderScript : MonoBehaviour
     }
 
     public void GenerateOrder(){
-        //activeOrders +=1;
-        if(activeOrders < 2){
-            internalOrderCD = orderCD;
-        }
+
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
         selectedRecipie = Random.Range(1, numberOfRecipies+1);
@@ -160,8 +145,6 @@ public class OrderScript : MonoBehaviour
         newOrder1.Play();
         newOrder2.Play();
 
-        //Vector3(24.3500004,3.74000001,0)
-        /
 
     }
 
@@ -188,10 +171,11 @@ public class OrderScript : MonoBehaviour
             Destroy(pufferObjects);
         }
     }
-
-
-
 }
 
-//10.58
-//3.74
+
+
+
+
+
+

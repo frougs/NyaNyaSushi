@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1002490325665963709}
   m_Layer: 0
   m_Name: examplePuffer
-  m_TagString: Puffer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230666755406526396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3106673, y: 1.6230825, z: 1.8914142}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37244, y: 0.37244, z: 0.37244}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
-  sushiSpeed: 0.5
+  sushiSpeed: 0.4
   endlessAdjustment: 0
   orderNum: 0
 --- !u!114 &1002490325665963709

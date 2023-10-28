@@ -142,6 +142,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: nya nya cart Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4782661660124055509, guid: 00325b5d7b78d224f84c8c89d88fc2b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4807757111656615330, guid: 00325b5d7b78d224f84c8c89d88fc2b2,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1233,7 +1238,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
+      propertyPath: winLose
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
       propertyPath: livesText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980682339708578769, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: dreadSystem
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1980682339708578769, guid: 5827e662c2442ed428b599ec53efbe52,
@@ -1341,7 +1356,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.09
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4770637467204509737, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
+    - {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
+    - {fileID: 8259586106264249312, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
+    - {fileID: 1980682339708578769, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1701757807402048093, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
     - {fileID: 7708343582353480805, guid: 5827e662c2442ed428b599ec53efbe52, type: 3}
@@ -2270,30 +2289,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1384370328 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1328047887744418331, guid: 5827e662c2442ed428b599ec53efbe52,
-    type: 3}
-  m_PrefabInstance: {fileID: 755696044}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90f39dfb0d4afd4ea4eee8395d8412f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1384370329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1980682339708578769, guid: 5827e662c2442ed428b599ec53efbe52,
-    type: 3}
-  m_PrefabInstance: {fileID: 755696044}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de71b836f1da754ca0080bfb1f55332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1410760279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,7 +2714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1743789370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,7 +3272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1978539581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3290,9 +3285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c1f69fb53b20e43b3238727f2a81f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: {fileID: 1384370328}
+  lives: {fileID: 0}
   order: {fileID: 0}
-  animations: {fileID: 1384370329}
+  animations: {fileID: 0}
   knife: {fileID: 0}
   fishTag: 
 --- !u!65 &1978539582
