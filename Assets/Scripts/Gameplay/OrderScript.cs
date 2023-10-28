@@ -36,6 +36,8 @@ public class OrderScript : MonoBehaviour
     [SerializeField] GameObject finishedTuna;
     [SerializeField] GameObject finishedSalmon;
     [SerializeField] GameObject finishedAvacado;
+    [SerializeField] GameObject menuTuna;
+    [SerializeField] GameObject menuSalmon;
     [SerializeField] ParticleSystem menuBoard1;
     [SerializeField] ParticleSystem menuBoard2;
     [SerializeField] ParticleSystem newOrder1;
@@ -47,6 +49,9 @@ public class OrderScript : MonoBehaviour
     private GameObject[] riceInGame;
     private GameObject[] avacadoInGame;
     private GameObject[] puffInGame;
+
+    [SerializeField] AudioSource dingSource;
+    [SerializeField] OrderCompleteAnimationScript orderAnim;
 
     private void Start(){
         graceCountdown = gracePeriod;
@@ -68,15 +73,19 @@ public class OrderScript : MonoBehaviour
 
         if(recipieText.Contains("Tuna")){
             finishedTuna.SetActive(true);
+            menuTuna.SetActive(true);
         }
         else{
             finishedTuna.SetActive(false);
+            menuTuna.SetActive(false);
         }
         if(recipieText.Contains("Salmon")){
             finishedSalmon.SetActive(true);
+            menuSalmon.SetActive(true);
         }
         else{
             finishedSalmon.SetActive(false);
+            menuSalmon.SetActive(false);
         }
         if(recipieText.Contains("Avacado")){
             finishedAvacado.SetActive(true);
@@ -95,9 +104,9 @@ public class OrderScript : MonoBehaviour
         }
         orderNumberText.text = "Order #" +orderNumber.ToString();
         recipieName.text = "Recipie: " +recipies.recipieName;
-        fishText.text = fishNumber.ToString() +"X " + fishTextString;
-        riceText.text = riceNumber.ToString() +"X Rice";
-        addonText.text = addonNumber.ToString() + "X " + addonTextString;
+        fishText.text = fishNumber.ToString() +"X";
+        riceText.text = riceNumber.ToString() +"X";
+        addonText.text = addonNumber.ToString() + "X";
 
         if(riceNumber <= 0){
             riceNumber = 0;
@@ -110,10 +119,12 @@ public class OrderScript : MonoBehaviour
         }
 
         if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0){
+            dingSource.Play();
             orderNumber += 1;
             GenerateOrder();
             graceCountdown = gracePeriod;
             //ClearConveyor();
+            orderAnim.triggerAnim = true;
         }
 
         if(orderNumber == orderNums){
@@ -162,5 +173,7 @@ public class OrderScript : MonoBehaviour
             Destroy(pufferObjects);
         }
     }
+
+
 
 }
