@@ -25,6 +25,9 @@ public class OrderScript : MonoBehaviour
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
     [SerializeField] int recipieOverride;
     private int selectedRecipie;
+    [SerializeField] GameObject ordersObject;
+    [SerializeField] float orderCD = 1.5f;
+    private float internalOrderCD;
 
     [Header("Just for testing")]
     [SerializeField] float orderNums;
@@ -95,7 +98,14 @@ public class OrderScript : MonoBehaviour
         }
 
 
-
+        if(activeOrders < 2){
+            internalOrderCD -= Time.deltaTime;
+            if(internalOrderCD <= 0){
+                Debug.Log("Addon New Order");
+                activeOrders += 1;
+            }
+            
+        }
 
         //Debug.Log(graceCountdown);
         graceCountdown -= Time.deltaTime;
@@ -133,6 +143,10 @@ public class OrderScript : MonoBehaviour
     }
 
     public void GenerateOrder(){
+        //activeOrders +=1;
+        if(activeOrders < 2){
+            internalOrderCD = orderCD;
+        }
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
         selectedRecipie = Random.Range(1, numberOfRecipies+1);
@@ -146,7 +160,8 @@ public class OrderScript : MonoBehaviour
         newOrder1.Play();
         newOrder2.Play();
 
-
+        //Vector3(24.3500004,3.74000001,0)
+        /
 
     }
 
@@ -177,3 +192,6 @@ public class OrderScript : MonoBehaviour
 
 
 }
+
+//10.58
+//3.74
