@@ -66,6 +66,9 @@ public class OrderScript : MonoBehaviour
     }
 
     private void Update(){
+
+        graceCountdown -= Time.deltaTime;
+
         if(endlessMode){
             ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
             foreach(ConveyorScript g in sushiObjects){

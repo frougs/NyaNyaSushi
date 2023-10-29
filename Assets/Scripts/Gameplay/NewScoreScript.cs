@@ -57,7 +57,7 @@ public class NewScoreScript : MonoBehaviour
             Destroy(other.gameObject);
             triggerSound = true;
         }
-        else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag){
+        else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag || sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() == fishTag && orders.fishNumber == 0){
             //score -= 5;
             animations.emotion = "sad";
             sweatSystem.Play();
