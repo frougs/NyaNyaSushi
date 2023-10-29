@@ -33,6 +33,7 @@ public class TrashScript : MonoBehaviour
                 lives.lives -= 1;
                 animations.emotion = "dizzy";
                 Destroy(other.gameObject);
+                Debug.Log("Losing Life");
             }
             else{
             Destroy(other.gameObject);
@@ -47,6 +48,7 @@ public class TrashScript : MonoBehaviour
                 lives.lives -= 1;
                 animations.emotion = "dizzy";
                 Destroy(other.gameObject);
+                Debug.Log("Losing Life");
             }
             else{
             Destroy(other.gameObject);
@@ -61,6 +63,7 @@ public class TrashScript : MonoBehaviour
                 lives.lives -= 1;
                 animations.emotion = "dizzy";
                 Destroy(other.gameObject);
+                Debug.Log("Losing Life");
             }
             else{
             Destroy(other.gameObject);

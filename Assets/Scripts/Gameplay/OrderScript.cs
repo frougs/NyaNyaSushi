@@ -25,6 +25,9 @@ public class OrderScript : MonoBehaviour
     [SerializeField] [Range(1, 5)] int numberOfRecipies;
     [SerializeField] int recipieOverride;
     private int selectedRecipie;
+    [SerializeField] GameObject ordersObject;
+    [SerializeField] float orderCD = 1.5f;
+    private float internalOrderCD;
 
     [Header("Just for testing")]
     [SerializeField] float orderNums;
@@ -63,6 +66,9 @@ public class OrderScript : MonoBehaviour
     }
 
     private void Update(){
+
+        graceCountdown -= Time.deltaTime;
+
         if(endlessMode){
             ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
             foreach(ConveyorScript g in sushiObjects){
@@ -94,14 +100,9 @@ public class OrderScript : MonoBehaviour
             finishedAvacado.SetActive(false);
         }
 
+            
 
 
-
-        //Debug.Log(graceCountdown);
-        graceCountdown -= Time.deltaTime;
-        if(graceCountdown <= 0){
-            graceCountdown = 0;
-        }
         orderNumberText.text = "Order #" +orderNumber.ToString();
         recipieName.text = "Recipie: " +recipies.recipieName;
         fishText.text = fishNumber.ToString() +"X";
@@ -133,6 +134,7 @@ public class OrderScript : MonoBehaviour
     }
 
     public void GenerateOrder(){
+
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
         selectedRecipie = Random.Range(1, numberOfRecipies+1);
@@ -145,7 +147,6 @@ public class OrderScript : MonoBehaviour
         menuBoard2.Play();
         newOrder1.Play();
         newOrder2.Play();
-
 
 
     }
@@ -173,7 +174,11 @@ public class OrderScript : MonoBehaviour
             Destroy(pufferObjects);
         }
     }
-
-
-
 }
+
+
+
+
+
+
+

@@ -7,13 +7,13 @@ public class ConveyorScript : MonoBehaviour
     [HideInInspector] public bool moving;
     private Vector3 sushiPos;
     [Header("Sushi Conveyor Speed")]
-    [SerializeField] float sushiSpeed;
+    public float sushiSpeed;
     [HideInInspector] public float endlessAdjustment;
     Rigidbody rb;
     private Vector3 movement;
     PufferScript puffer;
     OrderScript orders;
-    private int orderNum;
+    [HideInInspector] public int orderNum;
 
     void Start(){
         rb = this.GetComponent<Rigidbody>();
@@ -23,13 +23,11 @@ public class ConveyorScript : MonoBehaviour
     }
     void Update()
     {
-        if(puffer != null){
-           moving = true;
-        }
         orderNum = orders.orderNumber;
 
         sushiPos = transform.position;
         sushiPos.x = Mathf.Clamp(transform.position.x, 0f, 0f);
+
     }
 
     void FixedUpdate(){

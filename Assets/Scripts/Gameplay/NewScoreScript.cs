@@ -16,6 +16,10 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] AudioSource knifeSource;
     [SerializeField] AudioSource pufferSource;
     [SerializeField] GameObject slices;
+    [SerializeField] GameObject slicedT;
+    [SerializeField] GameObject slicedS;
+    private GameObject slicedTObj;
+    private GameObject slicedSObj;
     private GameObject slicesObj;
     private bool triggerSound;
 
@@ -38,13 +42,37 @@ public class NewScoreScript : MonoBehaviour
             score +=10;
             orders.fishNumber -= 1;
             animations.emotion = "excited";
+            if(other.gameObject.CompareTag("Salmon")){
+                var slicedSpawn = other.gameObject.transform.Find("slicedSSpawn");
+                Debug.Log("Spawning sliced Salmon");
+                slicedSObj = Instantiate(slicedS, transform);
+                StartCoroutine(Vanish(slicedSObj));
+            }
+            else if(other.gameObject.CompareTag("Tuna")){
+                var slicedSpawn = other.gameObject.transform.Find("slicedTSpawn");
+                Debug.Log("Spawning sliced Tuna");
+                slicedTObj = Instantiate(slicedT, transform);
+                StartCoroutine(Vanish(slicedTObj));
+            }
             Destroy(other.gameObject);
             triggerSound = true;
         }
-        else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag){
+        else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag || sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() == fishTag && orders.fishNumber == 0){
             //score -= 5;
             animations.emotion = "sad";
             sweatSystem.Play();
+            if(other.gameObject.CompareTag("Salmon")){
+                Debug.Log("Spawning sliced Salmon");
+                var slicedSpawn = other.gameObject.transform.Find("slicedSSpawn");
+                slicedSObj = Instantiate(slicedS, transform);
+                StartCoroutine(Vanish(slicedSObj));
+            }
+            else if(other.gameObject.CompareTag("Tuna")){
+                Debug.Log("Spawning sliced Tuna");
+                var slicedSpawn = other.gameObject.transform.Find("slicedTSpawn");
+                slicedTObj = Instantiate(slicedT, transform);
+                StartCoroutine(Vanish(slicedTObj));
+            }
             Destroy(other.gameObject);
             triggerSound = true;
         }
@@ -105,11 +133,11 @@ public class NewScoreScript : MonoBehaviour
     }
 
 
-    private IEnumerator Vanish(GameObject slices){
+    private IEnumerator Vanish(GameObject sliced){
         //Debug.Log("routine started");
         yield return new WaitForSeconds(1.5f);
         //Debug.Log("routine ended");
-        Destroy(slices);
+        Destroy(sliced);
     }
 
 }
