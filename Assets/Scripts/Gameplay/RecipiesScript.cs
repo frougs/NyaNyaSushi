@@ -5,9 +5,9 @@ using UnityEngine;
 public class RecipiesScript : MonoBehaviour
 {
 
-    [SerializeField] OrderScript orders;
-    [SerializeField] TrashScript trash;
-    [SerializeField] NewScoreScript score;
+    [SerializeField] NextOrderScript orders;
+    //[SerializeField] TrashScript trash;
+    //[SerializeField] NewScoreScript score;
     [HideInInspector] public string recipieName;
     [Header("Tuna Sushi Recipie")]
     [SerializeField] [Range(1, 5)] int maxTuna;
@@ -32,49 +32,52 @@ public class RecipiesScript : MonoBehaviour
         else if(recipieNumber == 3){
             SushiWithAvacado();
         }
-        orders.recipieText = recipieName;
+        //orders.recipieText = recipieName;
+        orders.nextRecipieName = recipieName;
     }
 
     void TunaSushi(){
-        orders.fishNumber = Random.Range(1, maxTuna);
-        orders.riceNumber = Random.Range(1, maxTunaRice);
-        orders.fishTextString = "Tuna";
+        orders.nextfishNumber = Random.Range(1, maxTuna);
+        orders.nextriceNumber = Random.Range(1, maxTunaRice);
+        //orders.nextfishTextString = "Tuna";
         recipieName = "Tuna Sushi";
-        trash.fishTag = "Tuna";
-        score.fishTag = "Tuna";
+        //trash.fishTag = "Tuna";
+        //score.fishTag = "Tuna";
     }
 
     void SalmonSushi(){
-        orders.fishNumber = Random.Range(1, maxSalmon);
-        orders.riceNumber = Random.Range(1, maxSalmonRice);
-        orders.fishTextString = "Salmon";
+        orders.nextfishNumber = Random.Range(1, maxSalmon);
+        orders.nextriceNumber = Random.Range(1, maxSalmonRice);
+        //orders.nextfishTextString = "Salmon";
         recipieName = "Salmon Sushi";
-        trash.fishTag = "Salmon";
-        score.fishTag = "Salmon";
+       // trash.fishTag = "Salmon";
+       // score.fishTag = "Salmon";
     }
 
     void SushiWithAvacado(){
-        orders.fishNumber = Random.Range(1, maxAFish);
-        orders.riceNumber = Random.Range(1, maxARice);
-        orders.addonNumber = Random.Range(1, maxAvacado);
+        orders.nextfishNumber = Random.Range(1, maxAFish);
+        orders.nextriceNumber = Random.Range(1, maxARice);
+        orders.nextaddonNumber = Random.Range(1, maxAvacado);
         var aFish = Random.Range(1, 2);
 
             if(aFish == 1){
-                orders.fishTextString = "Tuna";
-                trash.fishTag = "Tuna";
-                score.fishTag = "Tuna";
+                //orders.fishTextString = "Tuna";
+                //trash.fishTag = "Tuna";
+                //score.fishTag = "Tuna";
                 rFishName = "Tuna";
             }
             else if(aFish == 2){
-                orders.fishTextString = "Salmon";
-                trash.fishTag = "Salmon";
-                score.fishTag = "Salmon";
+                //orders.fishTextString = "Salmon";
+                //trash.fishTag = "Salmon";
+                //score.fishTag = "Salmon";
                 rFishName = "Salmon";
             }
-        orders.addonTextString = "Avacado";
+        //orders.addonTextString = "Avacado";
         recipieName = rFishName.ToString() + " sushi with Avacado";
         
         }
-
-    }
+    /*public void Update(){
+        orders.nextRecipieName = recipieName;
+    }*/
+}
 

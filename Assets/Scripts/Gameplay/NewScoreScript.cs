@@ -22,6 +22,7 @@ public class NewScoreScript : MonoBehaviour
     private GameObject slicedSObj;
     private GameObject slicesObj;
     private bool triggerSound;
+    [SerializeField] NextOrderScript nextOrder;
 
     [SerializeField] LivesScript lives;
     private void Start(){
@@ -118,7 +119,7 @@ public class NewScoreScript : MonoBehaviour
             sweatSystem.Play();
             Destroy(other.gameObject);
             pufferSource.Play();
-            orders.GenerateOrder();
+            nextOrder.GenerateOrder();
             lives.lives -= 1;
             orders.ClearConveyor();
             triggerSound = true;
