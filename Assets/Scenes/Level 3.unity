@@ -15301,7 +15301,8 @@ PrefabInstance:
     - {fileID: 5875159778394866871, guid: 7eefe65936c05d9458f9d38cce97d899, type: 3}
     - {fileID: 702939861618703701, guid: 7eefe65936c05d9458f9d38cce97d899, type: 3}
     - {fileID: 8846905898241537487, guid: 7eefe65936c05d9458f9d38cce97d899, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2840415699255612684, guid: 7eefe65936c05d9458f9d38cce97d899, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eefe65936c05d9458f9d38cce97d899, type: 3}
@@ -18683,6 +18684,12 @@ PrefabInstance:
       propertyPath: slices
       value: 
       objectReference: {fileID: 6019508372665994749, guid: 7eefe65936c05d9458f9d38cce97d899,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: slicedR
+      value: 
+      objectReference: {fileID: 1099283815471098947, guid: a9276796156da6249a5c0dc730e2291a,
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}

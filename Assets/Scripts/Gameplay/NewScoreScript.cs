@@ -18,9 +18,11 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] GameObject slices;
     [SerializeField] GameObject slicedT;
     [SerializeField] GameObject slicedS;
+    [SerializeField] GameObject slicedR;
     private GameObject slicedTObj;
     private GameObject slicedSObj;
     private GameObject slicesObj;
+    private GameObject slicedRObj;
     private bool triggerSound;
     [SerializeField] NextOrderScript nextOrder;
 
@@ -81,16 +83,20 @@ public class NewScoreScript : MonoBehaviour
         if(other.gameObject.CompareTag("Rice") && moving && orders.riceNumber != 0){
             score +=10;
             orders.riceNumber -= 1;
+            slicedRObj = Instantiate(slicedR, transform);
+            StartCoroutine(Vanish(slicedRObj));
             animations.emotion = "excited";
             Destroy(other.gameObject);
             triggerSound = true;
         }
         else if(other.gameObject.CompareTag("Rice") && moving && orders.riceNumber <= 0){
            // score -= 5;
+           slicedRObj = Instantiate(slicedR, transform);
+           StartCoroutine(Vanish(slicedRObj));
            animations.emotion = "sad";
            sweatSystem.Play();
-            Destroy(other.gameObject);
-            triggerSound = true;
+           Destroy(other.gameObject);
+           triggerSound = true;
         }
         if(other.gameObject.CompareTag("Avacado") && moving && orders.addonNumber != 0){
             score +=10;
