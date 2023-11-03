@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class OrderScript : MonoBehaviour
+public class NextOrderScript : MonoBehaviour
 {
-    public int fishNumber;
-    public int riceNumber;
-    public int addonNumber;
-    public int orderNumber;
-    [SerializeField] bool isCurrentOrder;
+    public int nextfishNumber;
+    public int nextriceNumber;
+    public int nextaddonNumber;
+    public int nextorderNumber;
+    public string nextFishTag;
     [Header("Text Objects")]
     [SerializeField] TextMeshPro fishText;
     [SerializeField] TextMeshPro riceText;
@@ -18,7 +18,7 @@ public class OrderScript : MonoBehaviour
     [HideInInspector] public string recipieText;
     [SerializeField] TextMeshPro orderNumberText;
 
-    //[SerializeField] RecipiesScript recipies;
+    [SerializeField] RecipiesScript recipies;
 
     [SerializeField] private float gracePeriod;
     [HideInInspector] public float graceCountdown;
@@ -27,25 +27,25 @@ public class OrderScript : MonoBehaviour
     [SerializeField] int recipieOverride;
     private int selectedRecipie;
     [SerializeField] GameObject ordersObject;
-    [SerializeField] float orderCD = 1.5f;
-    private float internalOrderCD;
+    //[SerializeField] float orderCD = 1.5f;
+    //private float internalOrderCD;
 
     [Header("Just for testing")]
-    [SerializeField] float orderNums;
-    public bool ordersComplete;
-    public bool endlessMode;
-    [SerializeField] float endlessSpeedAdjustment;
+    //[SerializeField] float orderNums;
+    //public bool ordersComplete;
+    //public bool endlessMode;
+    //[SerializeField] float endlessSpeedAdjustment;
     //[HideInInspector] public string fishTextString;
     [HideInInspector] public string addonTextString;
-    [SerializeField] GameObject finishedTuna;
-    [SerializeField] GameObject finishedSalmon;
-    [SerializeField] GameObject finishedAvacado;
+    //[SerializeField] GameObject finishedTuna;
+    //[SerializeField] GameObject finishedSalmon;
+    //[SerializeField] GameObject finishedAvacado;
     [SerializeField] GameObject menuTuna;
     [SerializeField] GameObject menuSalmon;
     [SerializeField] ParticleSystem menuBoard1;
     [SerializeField] ParticleSystem menuBoard2;
-    [SerializeField] ParticleSystem newOrder1;
-    [SerializeField] ParticleSystem newOrder2;
+    //[SerializeField] ParticleSystem newOrder1;
+    //[SerializeField] ParticleSystem newOrder2;
 
 
     private GameObject[] tunaInGame;
@@ -54,81 +54,68 @@ public class OrderScript : MonoBehaviour
     private GameObject[] avacadoInGame;
     private GameObject[] puffInGame;
 
-    [SerializeField] AudioSource dingSource;
-    [SerializeField] OrderCompleteAnimationScript orderAnim;
-    [HideInInspector] public bool orderParticles;
-    [SerializeField] NextOrderScript nextOrder;
+    //[SerializeField] AudioSource dingSource;
+    //[SerializeField] OrderCompleteAnimationScript orderAnim;
 
-    [SerializeField] TrashScript trash;
-    [SerializeField] NewScoreScript score;
-    private bool canNewOrder;
+    [SerializeField] OrderScript currentOrder;
+
+    public string nextRecipieName;
+
     private void Start(){
-        //orderNumber = 1;
-        graceCountdown = gracePeriod;
-        //orderNumber = 1;
-        //GenerateOrder();
-        if(endlessMode){
+        //graceCountdown = gracePeriod;
+        //nextorderNumber = 0;
+        GenerateOrder();
+        /*if(endlessMode){
             orderNums = Mathf.Infinity;
-        }
-        StartCoroutine(OrderDelay());
+        }*/
+        
     }
 
     private void Update(){
 
-        if(orderParticles){
-            menuBoard1.Play();
-            menuBoard2.Play();
-            newOrder1.Play();
-            newOrder2.Play();
-            orderParticles = false;
-        }
-        graceCountdown -= Time.deltaTime;
+        //graceCountdown -= Time.deltaTime;
 
-        if(endlessMode){
+        /*if(endlessMode){
             ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
             foreach(ConveyorScript g in sushiObjects){
                 g.endlessAdjustment = endlessSpeedAdjustment;
             }
-        }
+        }*/
 
 
-        if(recipieText.Contains("Tuna")){
-            finishedTuna.SetActive(true);
+        if(nextRecipieName.Contains("Tuna")){
+            //finishedTuna.SetActive(true);
             menuTuna.SetActive(true);
-            trash.fishTag = "Tuna";
-            score.fishTag = "Tuna";
         }
         else{
-            finishedTuna.SetActive(false);
+            //finishedTuna.SetActive(false);
             menuTuna.SetActive(false);
         }
-        if(recipieText.Contains("Salmon")){
-            finishedSalmon.SetActive(true);
+        if(nextRecipieName.Contains("Salmon")){
+           // finishedSalmon.SetActive(true);
             menuSalmon.SetActive(true);
-            trash.fishTag = "Salmon";
-            score.fishTag = "Salmon";
         }
         else{
-            finishedSalmon.SetActive(false);
+            //finishedSalmon.SetActive(false);
             menuSalmon.SetActive(false);
         }
-        if(recipieText.Contains("Avacado")){
+        /*if(recipieText.Contains("Avacado")){
             finishedAvacado.SetActive(true);
         }
         else{
             finishedAvacado.SetActive(false);
-        }
+        }*/
 
             
 
 
-        orderNumberText.text = "Order #" +orderNumber.ToString();
-        recipieName.text = "Recipie: " +recipieText;
+        /*orderNumberText.text = "Order #" +orderNumber.ToString();
+        recipieName.text = "Recipie: " +recipies.recipieName;
         fishText.text = fishNumber.ToString() +"X";
         riceText.text = riceNumber.ToString() +"X";
-        addonText.text = addonNumber.ToString() + "X";
+        addonText.text = addonNumber.ToString() + "X";*/
 
-        if(riceNumber <= 0){
+        /*if(riceNumber <= 0){
             riceNumber = 0;
         }
         if(fishNumber <=0){
@@ -136,31 +123,23 @@ public class OrderScript : MonoBehaviour
         }
         if(addonNumber <=0){
             addonNumber = 0;
-        }
+        }*/
 
-        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0 && canNewOrder){
+        /*if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0){
             dingSource.Play();
-            orderNumber += 1;
-            fishNumber = nextOrder.nextfishNumber;
-            riceNumber = nextOrder.nextriceNumber;
-            addonNumber = nextOrder.nextaddonNumber;
-            recipieText = nextOrder.nextRecipieName;
-            nextOrder.GenerateOrder();
+            nextorderNumber += 1;
+            GenerateOrder();
             graceCountdown = gracePeriod;
-            menuBoard1.Play();
-            menuBoard2.Play();
-            newOrder1.Play();
-            newOrder2.Play();
             //ClearConveyor();
             orderAnim.triggerAnim = true;
-        }
+        }*/
 
-        if(orderNumber == orderNums){
+        /*if(orderNumber == orderNums){
             ordersComplete = true;
-        }
+        }*/
     }
 
-   /* public void GenerateOrder(){
+    public void GenerateOrder(){
 
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
@@ -172,13 +151,22 @@ public class OrderScript : MonoBehaviour
         recipies.RecipieSelect(selectedRecipie);
         menuBoard1.Play();
         menuBoard2.Play();
-        newOrder1.Play();
-        newOrder2.Play();
+        //newOrder1.Play();
+        //newOrder2.Play();
+        nextRecipieName = recipies.recipieName;
+        fishText.text = nextfishNumber.ToString() + "X";
+        riceText.text = nextriceNumber.ToString() + "X";
+        addonText.text = nextaddonNumber.ToString() + "X";
+        recipieName.text = "Recipie: " +nextRecipieName;
+        
 
 
-    }*/
+        
 
-    public void ClearConveyor(){
+
+    }
+
+    /*public void ClearConveyor(){
         tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
         salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");
         foreach(GameObject tuna in tunaInGame){
@@ -200,11 +188,8 @@ public class OrderScript : MonoBehaviour
         foreach(GameObject pufferObjects in puffInGame){
             Destroy(pufferObjects);
         }
-    }
-    private IEnumerator OrderDelay(){
-        yield return new WaitForSeconds(0.1f);
-        canNewOrder = true;
-    }
+    }*/
+
 }
 
 
