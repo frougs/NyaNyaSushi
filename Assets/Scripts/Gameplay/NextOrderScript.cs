@@ -68,6 +68,7 @@ public class NextOrderScript : MonoBehaviour
         /*if(endlessMode){
             orderNums = Mathf.Infinity;
         }*/
+        
     }
 
     private void Update(){
@@ -157,6 +158,8 @@ public class NextOrderScript : MonoBehaviour
         riceText.text = nextriceNumber.ToString() + "X";
         addonText.text = nextaddonNumber.ToString() + "X";
         recipieName.text = "Recipie: " +nextRecipieName;
+        
+
 
         
 

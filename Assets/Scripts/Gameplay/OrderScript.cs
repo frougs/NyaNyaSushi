@@ -61,14 +61,16 @@ public class OrderScript : MonoBehaviour
 
     [SerializeField] TrashScript trash;
     [SerializeField] NewScoreScript score;
-
+    private bool canNewOrder;
     private void Start(){
+        //orderNumber = 1;
         graceCountdown = gracePeriod;
-        orderNumber = 1;
+        //orderNumber = 1;
         //GenerateOrder();
         if(endlessMode){
             orderNums = Mathf.Infinity;
         }
+        StartCoroutine(OrderDelay());
     }
 
     private void Update(){
@@ -136,7 +138,7 @@ public class OrderScript : MonoBehaviour
             addonNumber = 0;
         }
 
-        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0){
+        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0 && canNewOrder){
             dingSource.Play();
             orderNumber += 1;
             fishNumber = nextOrder.nextfishNumber;
@@ -198,6 +200,10 @@ public class OrderScript : MonoBehaviour
         foreach(GameObject pufferObjects in puffInGame){
             Destroy(pufferObjects);
         }
+    }
+    private IEnumerator OrderDelay(){
+        yield return new WaitForSeconds(0.1f);
+        canNewOrder = true;
     }
 }
 
