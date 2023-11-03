@@ -27651,6 +27651,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
+      propertyPath: slicedR
+      value: 
+      objectReference: {fileID: 1099283815471098947, guid: a9276796156da6249a5c0dc730e2291a,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
       propertyPath: slicedS
       value: 
       objectReference: {fileID: 5297619458746300297, guid: 67a231a7dca236742af6e979f40fb6b6,
@@ -27661,6 +27667,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5297619458746300297, guid: 135be5a45293c9a4b8613d56ef70ff4b,
         type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: nextOrder
+      value: 
+      objectReference: {fileID: 1312027035}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
       propertyPath: scoreText

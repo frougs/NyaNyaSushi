@@ -14997,6 +14997,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1042483706}
     m_Modifications:
+    - target: {fileID: 2840415699255612684, guid: 7eefe65936c05d9458f9d38cce97d899,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5031634110089603054, guid: 7eefe65936c05d9458f9d38cce97d899,
         type: 3}
       propertyPath: m_RootOrder
@@ -18740,6 +18745,11 @@ PrefabInstance:
       propertyPath: menuSalmon
       value: 
       objectReference: {fileID: 937869487}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: endlessMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: completeAnim
