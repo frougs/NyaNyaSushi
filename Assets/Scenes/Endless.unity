@@ -18393,6 +18393,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
+      propertyPath: nextOrder
+      value: 
+      objectReference: {fileID: 829783443}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 612420160}

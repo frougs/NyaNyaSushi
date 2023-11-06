@@ -31,6 +31,9 @@ public class LivesScript : MonoBehaviour
             lives = 0;
 
         }
+        if(lives >= 3){
+            lives = 3;
+        }
         //livesText.text = "Lives: " + lives.ToString();
 
         if(lives == 3){
