@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LivesScript : MonoBehaviour
 {
@@ -19,10 +20,16 @@ public class LivesScript : MonoBehaviour
     //[SerializeField] bool clearSavedLives;
 
     void Start(){
-        lives = PlayerPrefs.GetInt("Lives");
+        var currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name != "Endless"){
+            lives = PlayerPrefs.GetInt("Lives");
 
-        if(lives <= 0){
-            PlayerPrefs.SetInt("Lives", 3);
+            if(lives <= 0){
+                PlayerPrefs.SetInt("Lives", 3);
+                lives = 3;
+            }
+        }
+        else{
             lives = 3;
         }
     }

@@ -47,14 +47,17 @@ public class WinLoseScript : MonoBehaviour
         loseObject.SetActive(true);
         dimObject.SetActive(true);
         PlayerPrefs.SetInt("Lives", 3);
+        PlayerPrefs.SetInt("Level", 1);
     }
 
     void Win(){
         Time.timeScale = 0;
         winObject.SetActive(true);
         dimObject.SetActive(true);
-        if(SceneManagement.Scene.name != "Endless"){
-            levelMan.level = SceneManager.GetActiveScene().buildIndex;
+        var currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name != "Endless"){
+            //levelMan.level = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex + 1);
         }
         PlayerPrefs.SetInt("Lives", lives);
         
