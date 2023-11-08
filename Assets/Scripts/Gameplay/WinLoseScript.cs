@@ -14,6 +14,7 @@ public class WinLoseScript : MonoBehaviour
     [SerializeField] GameObject dimObject;
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] int winScore;
+    [SerializeField] LevelManager levelMan;
     private int score;
     private bool ordersComplete;
     private int lives;
@@ -45,11 +46,17 @@ public class WinLoseScript : MonoBehaviour
         Time.timeScale = 0;
         loseObject.SetActive(true);
         dimObject.SetActive(true);
+        PlayerPrefs.SetInt("Lives", 3);
     }
 
     void Win(){
         Time.timeScale = 0;
         winObject.SetActive(true);
         dimObject.SetActive(true);
+        if(SceneManagement.Scene.name != "Endless"){
+            levelMan.level = SceneManager.GetActiveScene().buildIndex;
+        }
+        PlayerPrefs.SetInt("Lives", lives);
+        
     }
 }

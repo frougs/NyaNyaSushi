@@ -5,8 +5,6 @@ using UnityEngine;
 public class PowerUpType : MonoBehaviour
 {
    [HideInInspector] enum Type{
-        autoComplete,
-        timeSlow,
         extraPoints,
         freezeBelt
     };

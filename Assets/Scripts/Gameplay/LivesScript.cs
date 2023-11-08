@@ -16,13 +16,24 @@ public class LivesScript : MonoBehaviour
     [SerializeField] GameObject lives1;
     [SerializeField] GameObject lives2;
     [SerializeField] GameObject lives3;
+    //[SerializeField] bool clearSavedLives;
 
     void Start(){
+        lives = PlayerPrefs.GetInt("Lives");
 
+        if(lives <= 0){
+            PlayerPrefs.SetInt("Lives", 3);
+            lives = 3;
+        }
     }
 
 
+
     void Update(){
+       /* if(clearSavedLives){
+            PlayerPrefs.DeleteKey("Lives");
+            clearSavedLives = false;
+        }*/
         if(lives == 1 && infiniteLives){
                 lives += 10;
             }
@@ -46,9 +57,12 @@ public class LivesScript : MonoBehaviour
         }
         if(lives == 1){
             lives2.SetActive(false);
+            lives3.SetActive(false);
         }
         if(lives == 0){
             lives1.SetActive(false);
+            lives2.SetActive(false);
+            lives3.SetActive(false);
         }
     }
 }

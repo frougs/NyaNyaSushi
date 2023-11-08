@@ -17,6 +17,7 @@ TagManager:
   - Current
   - PowerUp
   - Life
+  - Spawner
   layers:
   - Default
   - TransparentFX
