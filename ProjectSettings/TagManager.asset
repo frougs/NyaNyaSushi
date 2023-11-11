@@ -18,6 +18,7 @@ TagManager:
   - PowerUp
   - Life
   - Spawner
+  - Mahi
   layers:
   - Default
   - TransparentFX

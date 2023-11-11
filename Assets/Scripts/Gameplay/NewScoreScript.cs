@@ -28,12 +28,36 @@ public class NewScoreScript : MonoBehaviour
 
     [SerializeField] LivesScript lives;
     [SerializeField] PowerUpScript powerupManager;
+    private TextMeshPro mahiSlices;
+    private int currentMahiSlices;
+    private bool mahiDetect = true;
+    [SerializeField] MahiMahiScript mahiScript;
+    [SerializeField] GameObject mahiSliceObj;
+    private GameObject mSliceObj;
+    [SerializeField] int mahiNumSlices;
+
     private void Start(){
         sushiTags.Add("Tuna");
         sushiTags.Add("Salmon");
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
+
+        if(other.gameObject.tag == "Mahi" && mahiDetect == true){
+            currentMahiSlices += 1;
+            triggerSound = true;
+            mahiSlices = other.gameObject.transform.Find("sliceCount").GetComponent<TextMeshPro>();
+            mahiSlices.text = currentMahiSlices +" / " +(mahiNumSlices + orders.orderNumber);
+            if(currentMahiSlices >= mahiNumSlices + orders.orderNumber){
+                Destroy(other.gameObject);
+                mahiScript.MahiDestroyed();
+                mSliceObj = Instantiate(mahiSliceObj, transform);
+                Debug.Log(mSliceObj.transform.position);
+                StartCoroutine(Vanish(mSliceObj));
+            }
+            mahiDetect = false;
+        }
+
         if(moving && triggerSound || sushiTags.Contains(other.gameObject.tag.ToString())){
             knifeSource.Play();
             triggerSound = false;
@@ -152,6 +176,12 @@ public class NewScoreScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         //Debug.Log("routine ended");
         Destroy(sliced);
+    }
+
+    private void OnTriggerExit(Collider other){
+        if(other.gameObject.tag == "Mahi"){
+            mahiDetect = true;
+        }
     }
 
 }

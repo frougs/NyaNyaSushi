@@ -32,6 +32,9 @@ public class LivesScript : MonoBehaviour
         else{
             lives = 3;
         }
+        if(currentScene.name == "Endless"){
+            lives = 1;
+        }
     }
 
 
