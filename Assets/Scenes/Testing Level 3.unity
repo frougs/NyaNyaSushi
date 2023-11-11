@@ -6453,7 +6453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7681,6 +7681,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707916874}
   m_CullTransparentMesh: 1
+--- !u!1 &732197877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732197879}
+  - component: {fileID: 732197878}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &732197878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732197877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44b6dfa2a3dbb843a3bc86b6166f311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerPowerup: 0
+--- !u!4 &732197879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732197877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1563533, y: 1.9917526, z: -0.9121925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750729809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8341,7 +8386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9003,6 +9048,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 237329304}
   - {fileID: 1759578652}
   - {fileID: 707916875}
   - {fileID: 612420159}
@@ -9012,7 +9058,6 @@ RectTransform:
   - {fileID: 58478070}
   - {fileID: 770257770}
   - {fileID: 1845216234}
-  - {fileID: 237329304}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.331, y: 0, z: 0}
@@ -10460,7 +10505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -10657,7 +10702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12576,6 +12621,7 @@ MonoBehaviour:
   - {fileID: 744042815426004648, guid: 2f60f82716d66ec43b3db28768906c1c, type: 3}
   - {fileID: 1230666755406526396, guid: 84dd43c9e9aede04fa29b2209a6c50e7, type: 3}
   - {fileID: 7012952370511497449, guid: 4d4c570b53386fe4d90771c2c185c4b5, type: 3}
+  - {fileID: 716352469306652977, guid: 65024c1e428d131428da62bc39c33a2d, type: 3}
   minSpawnDelay: 1
   maxSpawnDelay: 2
   minAngle: 0
@@ -19226,6 +19272,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
+      propertyPath: slicedR
+      value: 
+      objectReference: {fileID: 1099283815471098947, guid: a9276796156da6249a5c0dc730e2291a,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
       propertyPath: slicedS
       value: 
       objectReference: {fileID: 5297619458746300297, guid: 67a231a7dca236742af6e979f40fb6b6,
@@ -19256,6 +19308,11 @@ PrefabInstance:
       propertyPath: sweatSystem
       value: 
       objectReference: {fileID: 758246275}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: powerupManager
+      value: 
+      objectReference: {fileID: 732197878}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,6 +13,11 @@ TagManager:
   - Avacado
   - Salmon
   - Puffer
+  - Next
+  - Current
+  - PowerUp
+  - Life
+  - Spawner
   layers:
   - Default
   - TransparentFX
