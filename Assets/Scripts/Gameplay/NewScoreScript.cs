@@ -27,6 +27,7 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] NextOrderScript nextOrder;
 
     [SerializeField] LivesScript lives;
+    [SerializeField] PowerUpScript powerupManager;
     private void Start(){
         sushiTags.Add("Tuna");
         sushiTags.Add("Salmon");
@@ -129,6 +130,12 @@ public class NewScoreScript : MonoBehaviour
             lives.lives -= 1;
             orders.ClearConveyor();
             triggerSound = true;
+        }
+        else if(other.gameObject.CompareTag("PowerUp") && moving){
+            //other.gameObject.GetComponent<PowerUpScript>().triggerPowerup = true;
+            powerupManager.GetComponent<PowerUpScript>().PowerUp(other.gameObject.GetComponent<PowerUpType>().powerUpName);
+            Destroy(other.gameObject);
+
         }
     }
     private void Update(){

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PufferScript : MonoBehaviour
 {
+    public float pufferSpeed = 0.3f;
 
     private void FixedUpdate(){
         var currentPos = this.transform.position;
-        currentPos.z -= 0.3f * Time.deltaTime;
+        currentPos.z -= pufferSpeed * Time.deltaTime;
         transform.position = currentPos;
     }
 

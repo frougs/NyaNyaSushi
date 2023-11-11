@@ -11,5 +11,9 @@ public class LevelMenu : MonoBehaviour
         string levelName = "Level " + levelId;
         SceneManager.LoadScene(levelName);
     }
+
+    public void FestivalMode(){
+        SceneManager.LoadScene("Endless");
+    }
 }
 
