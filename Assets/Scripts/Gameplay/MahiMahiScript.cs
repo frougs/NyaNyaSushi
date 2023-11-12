@@ -16,6 +16,13 @@ public class MahiMahiScript : MonoBehaviour
     [SerializeField] private bool startSpawnCD;
     [SerializeField] GameObject warningText;
     [SerializeField] Animator warningAnim;
+    [SerializeField] NewScoreScript score;
+    [SerializeField] Material mahiBase;
+    [SerializeField] Material mahiOneSlash;
+    [SerializeField] Material mahiTwoSlash;
+    [SerializeField] Material mahiThreeSlash;
+    private Renderer mahiRend;
+    private int slashChange;
     void Start()
     {
         MahiDestroyed();
@@ -29,6 +36,30 @@ public class MahiMahiScript : MonoBehaviour
     }*/
 
     private void Update(){
+        double mahiDiv = score.mahiDiv;
+        if(spawnedMahi != null){
+            if(mahiDiv <= 0){
+                Debug.Log("Base Mat");
+                mahiRend.material = mahiBase;
+            }
+            if(mahiDiv > 0 && mahiDiv < 0.5){
+                mahiRend.material = mahiOneSlash;
+                Debug.Log("One Slash Mat");
+            }
+            if(mahiDiv > 0.5 && mahiDiv < 0.75){
+                mahiRend.material = mahiTwoSlash;
+                Debug.Log("Two Slash Mat");
+            }
+            if(mahiDiv >= 0.75){
+                mahiRend.material = mahiThreeSlash;
+                Debug.Log("Three Slash Mat");
+            }
+        }
+
+
+        
+        
+
         if(startSpawnCD){
             spawnTimer -= Time.deltaTime;
             if(spawnTimer <= 0 && spawnedMahi == null && warnPlayer == false){
@@ -63,6 +94,7 @@ public class MahiMahiScript : MonoBehaviour
         Debug.Log("Spawning");
         warnPlayer = false;
         spawnedMahi = Instantiate(mahiMahiObj, transform);
+        mahiRend = spawnedMahi.GetComponent<Renderer>();
         warnStarted = false;
     }
     public void MahiDestroyed(){
