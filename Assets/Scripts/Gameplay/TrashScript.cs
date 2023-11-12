@@ -39,6 +39,10 @@ public class TrashScript : MonoBehaviour
             Destroy(other.gameObject);
             }
         }
+        if(other.GetComponent<Collider>().gameObject.tag == "Mahi"){
+            lives.lives -= 1;
+            animations.emotion = "dizzy";
+        }
 
         if(other.GetComponent<Collider>().gameObject.tag == "Rice" && order.riceNumber == 0){
             Destroy(other.gameObject);

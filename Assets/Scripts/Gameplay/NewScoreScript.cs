@@ -29,12 +29,14 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] LivesScript lives;
     [SerializeField] PowerUpScript powerupManager;
     private TextMeshPro mahiSlices;
-    private int currentMahiSlices;
+    public int currentMahiSlices;
     private bool mahiDetect = true;
     [SerializeField] MahiMahiScript mahiScript;
     [SerializeField] GameObject mahiSliceObj;
     private GameObject mSliceObj;
     [SerializeField] int mahiNumSlices;
+    public int totalMahiSlices;
+    [HideInInspector] public double mahiDiv;
 
     private void Start(){
         sushiTags.Add("Tuna");
@@ -47,8 +49,8 @@ public class NewScoreScript : MonoBehaviour
             currentMahiSlices += 1;
             triggerSound = true;
             mahiSlices = other.gameObject.transform.Find("sliceCount").GetComponent<TextMeshPro>();
-            mahiSlices.text = currentMahiSlices +" / " +(mahiNumSlices + orders.orderNumber);
-            if(currentMahiSlices >= mahiNumSlices + orders.orderNumber){
+            mahiSlices.text = currentMahiSlices +" / " +totalMahiSlices;
+            if(currentMahiSlices >= totalMahiSlices){
                 Destroy(other.gameObject);
                 mahiScript.MahiDestroyed();
                 mSliceObj = Instantiate(mahiSliceObj, transform);
@@ -166,8 +168,13 @@ public class NewScoreScript : MonoBehaviour
         //Debug.Log(fishTag);
         moving = GetComponent<KnifeScript>().moving;
 
+        totalMahiSlices = mahiNumSlices + orders.orderNumber;
 
         scoreText.text = "Score: "+ score.ToString();
+
+        mahiDiv = (double)currentMahiSlices/totalMahiSlices;
+
+
     }
 
 

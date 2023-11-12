@@ -10077,7 +10077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91183d548d532b84094bcb4af23f3f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mahiMahiObj: {fileID: 4310464820446687322, guid: ed4b96607015c4f428da5acd5d67cf72,
+  mahiMahiObj: {fileID: 1792549474700650494, guid: e1847ccf4f2edae439a0782ace88b13f,
     type: 3}
   warnDelayRange: 15
   warnTimer: 0
@@ -10088,6 +10088,11 @@ MonoBehaviour:
   startSpawnCD: 0
   warningText: {fileID: 829828865}
   warningAnim: {fileID: 829828867}
+  score: {fileID: 354637626}
+  mahiBase: {fileID: 2100000, guid: f47b76f92dd94634381d3274cc2c0395, type: 2}
+  mahiOneSlash: {fileID: 2100000, guid: 0d91a3c4d3eff14449b5cc2661056487, type: 2}
+  mahiTwoSlash: {fileID: 2100000, guid: cc33aa23ea3902849804afac3332defb, type: 2}
+  mahiThreeSlash: {fileID: 2100000, guid: aa742a2171b624946a6df775cfe13a37, type: 2}
 --- !u!4 &1360798788
 Transform:
   m_ObjectHideFlags: 0
