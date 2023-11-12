@@ -98,6 +98,7 @@ public class MahiMahiScript : MonoBehaviour
         warnStarted = false;
     }
     public void MahiDestroyed(){
+        score.currentMahiSlices = 0;
         spawnerObj.SetActive(true);
         startSpawnCD = true;
         Random.InitState(System.DateTime.Now.Millisecond);
