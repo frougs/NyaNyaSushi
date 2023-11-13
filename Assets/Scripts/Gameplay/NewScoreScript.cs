@@ -19,10 +19,12 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] GameObject slicedT;
     [SerializeField] GameObject slicedS;
     [SerializeField] GameObject slicedR;
+    [SerializeField] GameObject slicedI;
     private GameObject slicedTObj;
     private GameObject slicedSObj;
     private GameObject slicesObj;
     private GameObject slicedRObj;
+    private GameObject slicedPowerup;
     private bool triggerSound;
     [SerializeField] NextOrderScript nextOrder;
 
@@ -160,7 +162,13 @@ public class NewScoreScript : MonoBehaviour
         else if(other.gameObject.CompareTag("PowerUp") && moving){
             //other.gameObject.GetComponent<PowerUpScript>().triggerPowerup = true;
             powerupManager.GetComponent<PowerUpScript>().PowerUp(other.gameObject.GetComponent<PowerUpType>().powerUpName);
-            Destroy(other.gameObject);
+            triggerSound = true;
+            if(other.gameObject.name.Contains("freeze")){
+                slicedPowerup = Instantiate(slicedI, transform);
+                slicedPowerup.transform.position = other.gameObject.transform.position;
+                Destroy(other.gameObject);
+                StartCoroutine(Vanish(slicedPowerup));
+            }
 
         }
     }

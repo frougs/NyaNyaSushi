@@ -16796,6 +16796,10 @@ MonoBehaviour:
   - {fileID: 1230666755406526396, guid: 84dd43c9e9aede04fa29b2209a6c50e7, type: 3}
   - {fileID: 7012952370511497449, guid: 4d4c570b53386fe4d90771c2c185c4b5, type: 3}
   - {fileID: 716352469306652977, guid: 65024c1e428d131428da62bc39c33a2d, type: 3}
+  - {fileID: 1099283815471098947, guid: 2aec08676129d2741a7f9141244c8916, type: 3}
+  - {fileID: 1302504577851442103, guid: 371d4519f8da24f4cb2b49c318ac72a5, type: 3}
+  - {fileID: 744042815426004648, guid: 2f60f82716d66ec43b3db28768906c1c, type: 3}
+  - {fileID: 7012952370511497449, guid: 4d4c570b53386fe4d90771c2c185c4b5, type: 3}
   minSpawnDelay: 1
   maxSpawnDelay: 2
   minAngle: 0
@@ -19072,6 +19076,12 @@ PrefabInstance:
       propertyPath: slices
       value: 
       objectReference: {fileID: 6019508372665994749, guid: 7eefe65936c05d9458f9d38cce97d899,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: slicedI
+      value: 
+      objectReference: {fileID: 7702012176623335297, guid: b0430acc313795042bebe82741e04ba5,
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
