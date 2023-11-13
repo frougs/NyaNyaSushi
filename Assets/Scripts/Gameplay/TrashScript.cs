@@ -74,9 +74,10 @@ public class TrashScript : MonoBehaviour
             }
 
         }
-        else if(other.GetComponent<Collider>().gameObject.tag == "Puffer"){
+        else if(other.GetComponent<Collider>().gameObject.tag == "Puffer" || other.GetComponent<Collider>().gameObject.CompareTag("PowerUp")){
             Destroy(other.gameObject);
         }
+
     }
 
 }
