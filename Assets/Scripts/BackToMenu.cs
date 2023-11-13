@@ -11,5 +11,9 @@ public class BackToMenu : MonoBehaviour
         string levelName = "Main Menu " + levelId;
         SceneManager.LoadScene(levelName);
     }
+
+    public void OpenCredits(){
+        SceneManager.LoadScene("Credits");
+    }
 }
 
