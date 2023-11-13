@@ -23,6 +23,7 @@ public class MahiMahiScript : MonoBehaviour
     [SerializeField] Material mahiThreeSlash;
     private Renderer mahiRend;
     private int slashChange;
+    private bool spawned;
     void Start()
     {
         MahiDestroyed();
@@ -36,6 +37,11 @@ public class MahiMahiScript : MonoBehaviour
     }*/
 
     private void Update(){
+
+        if(spawned && spawnedMahi != null){
+            spawnerObj.SetActive(false);
+        }
+
         double mahiDiv = score.mahiDiv;
         if(spawnedMahi != null){
             if(mahiDiv <= 0){
@@ -89,6 +95,7 @@ public class MahiMahiScript : MonoBehaviour
     }
 
     private void SpawnMahiFish(){
+        spawned = true;
         warningAnim.SetBool("incoming", false);
         //warningText.SetActive(false);
         Debug.Log("Spawning");

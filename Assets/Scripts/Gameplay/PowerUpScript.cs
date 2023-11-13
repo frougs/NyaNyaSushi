@@ -48,14 +48,20 @@ public class PowerUpScript : MonoBehaviour
         yield return new WaitForSeconds(freezeTime);
         conveyorObjects = FindObjectsOfType<ConveyorScript>();
          pufferObjects = FindObjectsOfType<PufferScript>();
-        foreach (ConveyorScript obj in conveyorObjects){
-            obj.GetComponent<ConveyorScript>().sushiSpeed = 0.5f;
-            conveyorObj.SetActive(true);
-            spawnerObj.SetActive(true);
-        }
-        foreach (PufferScript obj in pufferObjects){
-                obj.GetComponent<PufferScript>().pufferSpeed = 0.3f;
+        if(conveyorObj != null){
+            foreach (ConveyorScript obj in conveyorObjects){
+                obj.GetComponent<ConveyorScript>().sushiSpeed = 0.5f;
+                conveyorObj.SetActive(true);
+                spawnerObj.SetActive(true);
             }
-        
+        }
+        if(pufferObjects != null){
+            foreach (PufferScript obj in pufferObjects){
+                    obj.GetComponent<PufferScript>().pufferSpeed = 0.3f;
+            }
+        }
+
+        spawnerObj.SetActive(true);
     }
+
 }
