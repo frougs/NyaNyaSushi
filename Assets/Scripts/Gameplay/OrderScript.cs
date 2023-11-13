@@ -160,24 +160,6 @@ public class OrderScript : MonoBehaviour
         }
     }
 
-   /* public void GenerateOrder(){
-
-        Random.InitState(System.DateTime.Now.Millisecond);
-        Random.State randomizer = Random.state;
-        selectedRecipie = Random.Range(1, numberOfRecipies+1);
-        if(recipieOverride != 0){
-            selectedRecipie = recipieOverride;
-        }
-        Debug.Log(selectedRecipie);
-        recipies.RecipieSelect(selectedRecipie);
-        menuBoard1.Play();
-        menuBoard2.Play();
-        newOrder1.Play();
-        newOrder2.Play();
-
-
-    }*/
-
     public void ClearConveyor(){
         tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
         salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");

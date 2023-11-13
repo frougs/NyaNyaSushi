@@ -6,8 +6,6 @@ public class RecipiesScript : MonoBehaviour
 {
 
     [SerializeField] NextOrderScript orders;
-    //[SerializeField] TrashScript trash;
-    //[SerializeField] NewScoreScript score;
     [HideInInspector] public string recipieName;
     [Header("Tuna Sushi Recipie")]
     [SerializeField] [Range(1, 5)] int maxTuna;
@@ -32,26 +30,24 @@ public class RecipiesScript : MonoBehaviour
         else if(recipieNumber == 3){
             SushiWithAvacado();
         }
-        //orders.recipieText = recipieName;
+
         orders.nextRecipieName = recipieName;
     }
 
     void TunaSushi(){
         orders.nextfishNumber = Random.Range(1, maxTuna);
         orders.nextriceNumber = Random.Range(1, maxTunaRice);
-        //orders.nextfishTextString = "Tuna";
+
         recipieName = "Tuna Sushi";
-        //trash.fishTag = "Tuna";
-        //score.fishTag = "Tuna";
+
     }
 
     void SalmonSushi(){
         orders.nextfishNumber = Random.Range(1, maxSalmon);
         orders.nextriceNumber = Random.Range(1, maxSalmonRice);
-        //orders.nextfishTextString = "Salmon";
+
         recipieName = "Salmon Sushi";
-       // trash.fishTag = "Salmon";
-       // score.fishTag = "Salmon";
+
     }
 
     void SushiWithAvacado(){
@@ -61,23 +57,16 @@ public class RecipiesScript : MonoBehaviour
         var aFish = Random.Range(1, 2);
 
             if(aFish == 1){
-                //orders.fishTextString = "Tuna";
-                //trash.fishTag = "Tuna";
-                //score.fishTag = "Tuna";
+
                 rFishName = "Tuna";
             }
             else if(aFish == 2){
-                //orders.fishTextString = "Salmon";
-                //trash.fishTag = "Salmon";
-                //score.fishTag = "Salmon";
+
                 rFishName = "Salmon";
             }
-        //orders.addonTextString = "Avacado";
-        recipieName = rFishName.ToString() + " sushi with Avacado";
-        
-        }
-    /*public void Update(){
-        orders.nextRecipieName = recipieName;
-    }*/
+        recipieName = rFishName.ToString() + " sushi with Avacado";    
+    }
+    
+
 }
 
