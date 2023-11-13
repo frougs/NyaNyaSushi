@@ -52,7 +52,7 @@ public class PowerUpScript : MonoBehaviour
             foreach (ConveyorScript obj in conveyorObjects){
                 obj.GetComponent<ConveyorScript>().sushiSpeed = 0.5f;
                 conveyorObj.SetActive(true);
-                spawnerObj.SetActive(true);
+                //spawnerObj.SetActive(true);
             }
         }
         if(pufferObjects != null){
@@ -60,7 +60,6 @@ public class PowerUpScript : MonoBehaviour
                     obj.GetComponent<PufferScript>().pufferSpeed = 0.3f;
             }
         }
-
         spawnerObj.SetActive(true);
     }
 
