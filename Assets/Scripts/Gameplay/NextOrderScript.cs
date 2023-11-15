@@ -8,12 +8,14 @@ public class NextOrderScript : MonoBehaviour
     public int nextfishNumber;
     public int nextriceNumber;
     public int nextaddonNumber;
+    public int nextaddon2Number;
     public int nextorderNumber;
     public string nextFishTag;
     [Header("Text Objects")]
     [SerializeField] TextMeshPro fishText;
     [SerializeField] TextMeshPro riceText;
     [SerializeField] TextMeshPro addonText;
+    [SerializeField] TextMeshPro addon2Text;
     [SerializeField] TextMeshPro recipieName;
     [HideInInspector] public string recipieText;
     [SerializeField] TextMeshPro orderNumberText;
@@ -23,120 +25,94 @@ public class NextOrderScript : MonoBehaviour
     [SerializeField] private float gracePeriod;
     [HideInInspector] public float graceCountdown;
 
-    [SerializeField] [Range(1, 5)] int numberOfRecipies;
+    [SerializeField] [Range(1, 6)] int numberOfRecipies;
     [SerializeField] int recipieOverride;
     private int selectedRecipie;
     [SerializeField] GameObject ordersObject;
-    //[SerializeField] float orderCD = 1.5f;
-    //private float internalOrderCD;
+
 
     [Header("Just for testing")]
-    //[SerializeField] float orderNums;
-    //public bool ordersComplete;
-    //public bool endlessMode;
-    //[SerializeField] float endlessSpeedAdjustment;
-    //[HideInInspector] public string fishTextString;
+
     [HideInInspector] public string addonTextString;
-    //[SerializeField] GameObject finishedTuna;
-    //[SerializeField] GameObject finishedSalmon;
-    //[SerializeField] GameObject finishedAvacado;
+
+    [HideInInspector] public int nextAddonAmount;
+
     [SerializeField] GameObject menuTuna;
     [SerializeField] GameObject menuSalmon;
+    [SerializeField] GameObject menuAddon1;
+    [SerializeField] GameObject menuAddon2;
     [SerializeField] ParticleSystem menuBoard1;
     [SerializeField] ParticleSystem menuBoard2;
-    //[SerializeField] ParticleSystem newOrder1;
-    //[SerializeField] ParticleSystem newOrder2;
 
 
-    private GameObject[] tunaInGame;
+
+    /*private GameObject[] tunaInGame;
     private GameObject[] salmonInGame;
     private GameObject[] riceInGame;
     private GameObject[] avacadoInGame;
-    private GameObject[] puffInGame;
+    private GameObject[] puffInGame;*/
 
-    //[SerializeField] AudioSource dingSource;
-    //[SerializeField] OrderCompleteAnimationScript orderAnim;
+    /*
+    //Disabled until icons are done
+    [SerializeField] GameObject menuClam;
+    [SerializeField] GameObject menuEel;
+    [SerializeField] GameObject menuUrchin;
+    */
+
 
     [SerializeField] OrderScript currentOrder;
 
     public string nextRecipieName;
 
     private void Start(){
-        //graceCountdown = gracePeriod;
-        //nextorderNumber = 0;
+
         GenerateOrder();
-        /*if(endlessMode){
-            orderNums = Mathf.Infinity;
-        }*/
+
         
     }
 
     private void Update(){
 
-        //graceCountdown -= Time.deltaTime;
-
-        /*if(endlessMode){
-            ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
-            foreach(ConveyorScript g in sushiObjects){
-                g.endlessAdjustment = endlessSpeedAdjustment;
-            }
-        }*/
-
-
         if(nextRecipieName.Contains("Tuna")){
-            //finishedTuna.SetActive(true);
+
             menuTuna.SetActive(true);
         }
         else{
-            //finishedTuna.SetActive(false);
+
             menuTuna.SetActive(false);
         }
         if(nextRecipieName.Contains("Salmon")){
-           // finishedSalmon.SetActive(true);
+
             menuSalmon.SetActive(true);
         }
         else{
-            //finishedSalmon.SetActive(false);
+
             menuSalmon.SetActive(false);
         }
-        /*if(recipieText.Contains("Avacado")){
-            finishedAvacado.SetActive(true);
+        /*
+        //Disabled until icons are done
+        if(nextRecipieName.Contains("Kobashira")){
+            menuClam.SetActive(true);
         }
         else{
-            finishedAvacado.SetActive(false);
-        }*/
-
-            
-
-
-        /*orderNumberText.text = "Order #" +orderNumber.ToString();
-        recipieName.text = "Recipie: " +recipies.recipieName;
-        fishText.text = fishNumber.ToString() +"X";
-        riceText.text = riceNumber.ToString() +"X";
-        addonText.text = addonNumber.ToString() + "X";*/
-
-        /*if(riceNumber <= 0){
-            riceNumber = 0;
+            menuClam.SetActive(false);
         }
-        if(fishNumber <=0){
-            fishNumber = 0;
+
+        if(nextRecipieName.Contains("UnakyuMaki")){
+            menuEel.SetActive(true);
         }
-        if(addonNumber <=0){
-            addonNumber = 0;
-        }*/
+        else{
+            menuEel.SetActive(false);
+        }
 
-        /*if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0){
-            dingSource.Play();
-            nextorderNumber += 1;
-            GenerateOrder();
-            graceCountdown = gracePeriod;
-            //ClearConveyor();
-            orderAnim.triggerAnim = true;
-        }*/
-
-        /*if(orderNumber == orderNums){
-            ordersComplete = true;
-        }*/
+        if(nextRecipieName.Contains("Sea Urchin")){
+            menuUrchin.SetActive(true);
+        }
+        else{
+            menuUrchin.SetActive(false);
+        }
+        */
+        
     }
 
     public void GenerateOrder(){
@@ -156,7 +132,24 @@ public class NextOrderScript : MonoBehaviour
         nextRecipieName = recipies.recipieName;
         fishText.text = nextfishNumber.ToString() + "X";
         riceText.text = nextriceNumber.ToString() + "X";
-        addonText.text = nextaddonNumber.ToString() + "X";
+        if(nextAddonAmount == 1){
+            addonText.gameObject.SetActive(true);
+            addon2Text.gameObject.SetActive(false);
+            menuAddon2.SetActive(false);
+            menuAddon1.SetActive(true);
+            addonText.text = nextaddonNumber.ToString() + "X";
+        }
+        else if(nextAddonAmount == 2){
+            addon2Text.gameObject.SetActive(true);
+            menuAddon2.SetActive(true);
+            addon2Text.text = nextaddon2Number.ToString() + "X";
+        }
+        else{
+            addonText.gameObject.SetActive(false);
+            addon2Text.gameObject.SetActive(false);
+            menuAddon2.SetActive(false);
+            menuAddon1.SetActive(false);
+        }
         recipieName.text = "Recipie: " +nextRecipieName;
         
 
@@ -165,31 +158,6 @@ public class NextOrderScript : MonoBehaviour
 
 
     }
-
-    /*public void ClearConveyor(){
-        tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
-        salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");
-        foreach(GameObject tuna in tunaInGame){
-            Destroy(tuna);
-        }
-        foreach(GameObject salmon in salmonInGame){
-            Destroy(salmon);
-        }
-
-        riceInGame = GameObject.FindGameObjectsWithTag("Rice");
-            foreach(GameObject riceObjects in riceInGame){
-                Destroy(riceObjects);
-            }
-        avacadoInGame = GameObject.FindGameObjectsWithTag("Avacado");
-        foreach(GameObject avacadoObjects in avacadoInGame){
-            Destroy(avacadoObjects);
-        }
-        puffInGame = GameObject.FindGameObjectsWithTag("Puffer");
-        foreach(GameObject pufferObjects in puffInGame){
-            Destroy(pufferObjects);
-        }
-    }*/
-
 }
 
 

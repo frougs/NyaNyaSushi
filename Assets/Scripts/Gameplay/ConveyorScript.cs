@@ -8,7 +8,7 @@ public class ConveyorScript : MonoBehaviour
     private Vector3 sushiPos;
     [Header("Sushi Conveyor Speed")]
     public float sushiSpeed;
-    [HideInInspector] public float endlessAdjustment;
+    //[HideInInspector] public float endlessAdjustment;
     Rigidbody rb;
     private Vector3 movement;
     PufferScript puffer;
@@ -32,7 +32,7 @@ public class ConveyorScript : MonoBehaviour
 
     void FixedUpdate(){
         if(moving){
-            sushiPos.z -= ((sushiSpeed * orderNum) - endlessAdjustment) * Time.deltaTime;
+            sushiPos.z -= (((sushiSpeed * orderNum) * 0.5f)) * Time.deltaTime;
             transform.position = sushiPos;
         }
         

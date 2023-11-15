@@ -29,13 +29,6 @@ public class MahiMahiScript : MonoBehaviour
         MahiDestroyed();
     }
 
-    /*private void Update(){
-        if(spawnMahi){
-            SpawnMahiFish();
-            spawnMahi = false;
-        }
-    }*/
-
     private void Update(){
 
         if(spawned && spawnedMahi != null){
