@@ -8,14 +8,18 @@ public class OrderScript : MonoBehaviour
     public int fishNumber;
     public int riceNumber;
     public int addonNumber;
+    public int addon2Number;
     public int orderNumber;
     [SerializeField] bool isCurrentOrder;
     [Header("Text Objects")]
     [SerializeField] TextMeshPro fishText;
     [SerializeField] TextMeshPro riceText;
     [SerializeField] TextMeshPro addonText;
+    [SerializeField] TextMeshPro addon2Text;
     [SerializeField] TextMeshPro recipieName;
-    [HideInInspector] public string recipieText;
+    [SerializeField] GameObject menuAddon1;
+    [SerializeField] GameObject menuAddon2;
+    /*[HideInInspector] */public string recipieText;
     [SerializeField] TextMeshPro orderNumberText;
 
     //[SerializeField] RecipiesScript recipies;
@@ -34,7 +38,7 @@ public class OrderScript : MonoBehaviour
     [SerializeField] float orderNums;
     public bool ordersComplete;
     public bool endlessMode;
-    [SerializeField] float endlessSpeedAdjustment;
+    //[SerializeField] float endlessSpeedAdjustment;
     //[HideInInspector] public string fishTextString;
     [HideInInspector] public string addonTextString;
     [SerializeField] GameObject finishedTuna;
@@ -61,6 +65,8 @@ public class OrderScript : MonoBehaviour
 
     [SerializeField] TrashScript trash;
     [SerializeField] NewScoreScript score;
+
+    [HideInInspector] public int currentAddonAmount;
     private bool canNewOrder;
     private void Start(){
         //orderNumber = 1;
@@ -84,12 +90,12 @@ public class OrderScript : MonoBehaviour
         }
         graceCountdown -= Time.deltaTime;
 
-        if(endlessMode){
+        /*if(endlessMode){
             ConveyorScript[] sushiObjects = FindObjectsOfType<ConveyorScript>();
             foreach(ConveyorScript g in sushiObjects){
                 g.endlessAdjustment = endlessSpeedAdjustment;
             }
-        }
+        }*/
 
 
         if(recipieText.Contains("Tuna")){
@@ -118,6 +124,10 @@ public class OrderScript : MonoBehaviour
         else{
             finishedAvacado.SetActive(false);
         }
+        if(recipieText.Contains("Kobashira")){
+            trash.fishTag = "Clam";
+            score.fishTag = "Clam";
+        }
 
             
 
@@ -126,7 +136,12 @@ public class OrderScript : MonoBehaviour
         recipieName.text = "Recipie: " +recipieText;
         fishText.text = fishNumber.ToString() +"X";
         riceText.text = riceNumber.ToString() +"X";
-        addonText.text = addonNumber.ToString() + "X";
+        if(currentAddonAmount == 1){
+            addonText.text = addonNumber.ToString() + "X";
+        }
+        else if(currentAddonAmount == 2){
+            addon2Text.text = addon2Number.ToString() + "X";
+        }
 
         if(riceNumber <= 0){
             riceNumber = 0;
@@ -143,8 +158,26 @@ public class OrderScript : MonoBehaviour
             orderNumber += 1;
             fishNumber = nextOrder.nextfishNumber;
             riceNumber = nextOrder.nextriceNumber;
-            addonNumber = nextOrder.nextaddonNumber;
+            if(currentAddonAmount == 1){
+                addonText.gameObject.SetActive(true);
+                addon2Text.gameObject.SetActive(false);
+                menuAddon2.SetActive(false);
+                menuAddon1.SetActive(true);
+                addonNumber = nextOrder.nextaddonNumber;
+            }
+            else if(currentAddonAmount == 2){
+                addon2Text.gameObject.SetActive(true);
+                menuAddon2.SetActive(true);
+                addon2Number  = nextOrder.nextaddon2Number;
+            }
+            else{
+                addonText.gameObject.SetActive(false);
+                addon2Text.gameObject.SetActive(false);
+                menuAddon2.SetActive(false);
+                menuAddon1.SetActive(false);
+            }
             recipieText = nextOrder.nextRecipieName;
+            currentAddonAmount = nextOrder.nextAddonAmount;
             nextOrder.GenerateOrder();
             graceCountdown = gracePeriod;
             menuBoard1.Play();
