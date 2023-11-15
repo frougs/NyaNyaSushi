@@ -128,6 +128,14 @@ public class OrderScript : MonoBehaviour
             trash.fishTag = "Clam";
             score.fishTag = "Clam";
         }
+        if(recipieText.Contains("Sea Urchin")){
+            trash.fishTag = "UrchinNoSpikes";
+            score.fishTag = "UrchinNoSpikes";
+        }
+        if(recipieText.Contains("UnakyuMaki")){
+            trash.fishTag = "Eel";
+            score.fishTag = "Eel";
+        }
 
             
 
