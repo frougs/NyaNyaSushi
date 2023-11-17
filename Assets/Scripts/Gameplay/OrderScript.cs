@@ -46,6 +46,10 @@ public class OrderScript : MonoBehaviour
     [SerializeField] GameObject finishedAvacado;
     [SerializeField] GameObject menuTuna;
     [SerializeField] GameObject menuSalmon;
+    [SerializeField] GameObject menuAvacado;
+    [SerializeField] GameObject menuClam;
+    [SerializeField] GameObject menuEel;
+    [SerializeField] GameObject menuUrchin;
     [SerializeField] ParticleSystem menuBoard1;
     [SerializeField] ParticleSystem menuBoard2;
     [SerializeField] ParticleSystem newOrder1;
@@ -120,21 +124,35 @@ public class OrderScript : MonoBehaviour
         }
         if(recipieText.Contains("Avacado")){
             finishedAvacado.SetActive(true);
+            menuAvacado.SetActive(true);
         }
         else{
             finishedAvacado.SetActive(false);
+            menuAvacado.SetActive(false);
         }
         if(recipieText.Contains("Kobashira")){
             trash.fishTag = "Clam";
             score.fishTag = "Clam";
+            menuClam.SetActive(true);
+        }
+        else{
+            menuClam.SetActive(false);
         }
         if(recipieText.Contains("Sea Urchin")){
             trash.fishTag = "UrchinNoSpikes";
             score.fishTag = "UrchinNoSpikes";
+            menuUrchin.SetActive(true);
+        }
+        else{
+            menuUrchin.SetActive(false);
         }
         if(recipieText.Contains("UnakyuMaki")){
             trash.fishTag = "Eel";
             score.fishTag = "Eel";
+            menuEel.SetActive(true);
+        }
+        else{
+            menuEel.SetActive(false);
         }
 
             
@@ -146,9 +164,15 @@ public class OrderScript : MonoBehaviour
         riceText.text = riceNumber.ToString() +"X";
         if(currentAddonAmount == 1){
             addonText.text = addonNumber.ToString() + "X";
+            addonText.gameObject.SetActive(true);
         }
         else if(currentAddonAmount == 2){
             addon2Text.text = addon2Number.ToString() + "X";
+            addon2Text.gameObject.SetActive(true);
+        }
+        else{
+            addonText.gameObject.SetActive(false);
+            addon2Text.gameObject.SetActive(false);
         }
 
         if(riceNumber <= 0){
@@ -166,17 +190,19 @@ public class OrderScript : MonoBehaviour
             orderNumber += 1;
             fishNumber = nextOrder.nextfishNumber;
             riceNumber = nextOrder.nextriceNumber;
+            addonNumber = nextOrder.nextaddonNumber;
+            addon2Number  = nextOrder.nextaddon2Number;
             if(currentAddonAmount == 1){
                 addonText.gameObject.SetActive(true);
                 addon2Text.gameObject.SetActive(false);
                 menuAddon2.SetActive(false);
                 menuAddon1.SetActive(true);
-                addonNumber = nextOrder.nextaddonNumber;
+                //addonNumber = nextOrder.nextaddonNumber;
             }
             else if(currentAddonAmount == 2){
                 addon2Text.gameObject.SetActive(true);
                 menuAddon2.SetActive(true);
-                addon2Number  = nextOrder.nextaddon2Number;
+                //addon2Number  = nextOrder.nextaddon2Number;
             }
             else{
                 addonText.gameObject.SetActive(false);

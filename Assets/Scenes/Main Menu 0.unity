@@ -666,6 +666,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &237272320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9037911527271378057, guid: 8890275c9839a52409f254cfe326f695,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297022200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &237272321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5055787665678116222, guid: 8890275c9839a52409f254cfe326f695,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297022200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &237272322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4358444500227863244, guid: 8890275c9839a52409f254cfe326f695,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297022200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &258573533
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4141,7 @@ PrefabInstance:
     - target: {fileID: 1760573050747895244, guid: 8890275c9839a52409f254cfe326f695,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2072256841490540976, guid: 8890275c9839a52409f254cfe326f695,
         type: 3}
@@ -4429,6 +4447,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 72560a7da97eafa48966e3d9847b9527,
         type: 3}
+    - target: {fileID: 4706132520757753466, guid: 8890275c9839a52409f254cfe326f695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828527220310348347, guid: 8890275c9839a52409f254cfe326f695,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4505,6 +4528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872627223967806606, guid: 8890275c9839a52409f254cfe326f695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5905916291027804748, guid: 8890275c9839a52409f254cfe326f695,
         type: 3}
@@ -5894,6 +5922,9 @@ MonoBehaviour:
   level1: {fileID: 1943989291}
   level2: {fileID: 1342542209}
   level3: {fileID: 2019472738}
+  level4: {fileID: 237272322}
+  level5: {fileID: 237272321}
+  level6: {fileID: 237272320}
 --- !u!4 &1597682580
 Transform:
   m_ObjectHideFlags: 0

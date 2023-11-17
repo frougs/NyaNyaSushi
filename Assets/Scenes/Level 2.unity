@@ -17918,11 +17918,13 @@ MonoBehaviour:
   nextfishNumber: 0
   nextriceNumber: 0
   nextaddonNumber: 0
+  nextaddon2Number: 0
   nextorderNumber: 0
   nextFishTag: 
   fishText: {fileID: 423044643}
   riceText: {fileID: 1078187149}
   addonText: {fileID: 1854961112}
+  addon2Text: {fileID: 1854961112}
   recipieName: {fileID: 886563008}
   recipieText: 
   orderNumberText: {fileID: 1952763414}
@@ -17933,8 +17935,11 @@ MonoBehaviour:
   recipieOverride: 1
   ordersObject: {fileID: 1407463607}
   addonTextString: 
+  nextAddonAmount: 0
   menuTuna: {fileID: 1314062325}
   menuSalmon: {fileID: 1295461101}
+  menuAddon1: {fileID: 1854961110}
+  menuAddon2: {fileID: 1854961110}
   menuBoard1: {fileID: 19028714}
   menuBoard2: {fileID: 553936583}
   currentOrder: {fileID: 916465961}
@@ -17960,6 +17965,14 @@ MonoBehaviour:
   maxAFish: 0
   maxARice: 2
   maxAvacado: 2
+  maxClam: 0
+  maxKRice: 0
+  maxEel: 0
+  maxUCucumber: 0
+  maxURice: 0
+  maxUAvo: 0
+  maxUrchin: 0
+  maxUrRice: 0
 --- !u!212 &2143097402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18392,9 +18405,24 @@ PrefabInstance:
       objectReference: {fileID: 237329306}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
+      propertyPath: addon2Text
+      value: 
+      objectReference: {fileID: 7024124474676459328}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
       propertyPath: dingSource
       value: 
       objectReference: {fileID: 7024124474676459325}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: menuAddon1
+      value: 
+      objectReference: {fileID: 7024124474676459327}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: menuAddon2
+      value: 
+      objectReference: {fileID: 7024124474676459327}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: menuSalmon
@@ -18666,6 +18694,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7024124474676459323}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7024124474676459327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2309871030350618439, guid: 5827e662c2442ed428b599ec53efbe52,
+    type: 3}
+  m_PrefabInstance: {fileID: 7024124474676459323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7024124474676459328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581294906840954170, guid: 5827e662c2442ed428b599ec53efbe52,
+    type: 3}
+  m_PrefabInstance: {fileID: 7024124474676459323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7024124474676459327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8231844762206592146
 PrefabInstance:
   m_ObjectHideFlags: 0
