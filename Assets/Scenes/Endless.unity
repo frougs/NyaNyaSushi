@@ -8024,7 +8024,7 @@ MonoBehaviour:
   gracePeriod: 0
   graceCountdown: 0
   numberOfRecipies: 6
-  recipieOverride: 0
+  recipieOverride: 6
   ordersObject: {fileID: 7024124474676459329}
   addonTextString: 
   nextAddonAmount: 0
@@ -19729,6 +19729,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
         type: 3}
+      propertyPath: slicedUrchin
+      value: 
+      objectReference: {fileID: 7279102059780055893, guid: 708953f1a65b2cd44885462ae45c0baa,
+        type: 3}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
       propertyPath: mahiNumSlices
       value: 8
       objectReference: {fileID: 0}
@@ -19737,6 +19743,12 @@ PrefabInstance:
       propertyPath: powerupManager
       value: 
       objectReference: {fileID: 1072769282}
+    - target: {fileID: 7494512360649958624, guid: ad907c528b8949c4bb19d90943cdd3d8,
+        type: 3}
+      propertyPath: urchinNoSpikes
+      value: 
+      objectReference: {fileID: 7822705677066177713, guid: da2678a43e25624459cc8dbb8c539158,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

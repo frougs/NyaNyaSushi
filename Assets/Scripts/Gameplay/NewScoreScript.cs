@@ -25,6 +25,8 @@ public class NewScoreScript : MonoBehaviour
     private GameObject slicesObj;
     private GameObject slicedRObj;
     private GameObject slicedPowerup;
+    private GameObject slicedUObj;
+    private GameObject urchinNSObj;
     private bool triggerSound;
     [SerializeField] NextOrderScript nextOrder;
 
@@ -35,6 +37,11 @@ public class NewScoreScript : MonoBehaviour
     private bool mahiDetect = true;
     [SerializeField] MahiMahiScript mahiScript;
     [SerializeField] GameObject mahiSliceObj;
+
+    [SerializeField] GameObject slicedUrchin;
+    [SerializeField] GameObject urchinNoSpikes;
+
+
     private GameObject mSliceObj;
     [SerializeField] int mahiNumSlices;
     public int totalMahiSlices;
@@ -85,6 +92,10 @@ public class NewScoreScript : MonoBehaviour
                 Debug.Log("Spawning sliced Tuna");
                 slicedTObj = Instantiate(slicedT, transform);
                 StartCoroutine(Vanish(slicedTObj));
+            }
+            else if(other.gameObject.CompareTag("UrchinNoSpikes")){
+                slicedUObj = Instantiate(slicedUrchin, transform);
+                StartCoroutine(Vanish(slicedUObj));
             }
             Destroy(other.gameObject);
             triggerSound = true;
@@ -170,6 +181,10 @@ public class NewScoreScript : MonoBehaviour
                 StartCoroutine(Vanish(slicedPowerup));
             }
 
+        }
+        else if(other.gameObject.CompareTag("Urchin") && moving){
+            urchinNSObj = Instantiate(urchinNoSpikes, transform);
+            Destroy(other.gameObject);
         }
     }
     private void Update(){

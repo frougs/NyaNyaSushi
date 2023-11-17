@@ -19,6 +19,8 @@ TagManager:
   - Life
   - Spawner
   - Mahi
+  - Urchin
+  - UrchinNoSpikes
   layers:
   - Default
   - TransparentFX

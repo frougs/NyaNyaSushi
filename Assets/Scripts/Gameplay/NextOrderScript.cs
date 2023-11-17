@@ -39,6 +39,7 @@ public class NextOrderScript : MonoBehaviour
 
     [SerializeField] GameObject menuTuna;
     [SerializeField] GameObject menuSalmon;
+    [SerializeField] GameObject menuAvacado;
     [SerializeField] GameObject menuAddon1;
     [SerializeField] GameObject menuAddon2;
     [SerializeField] ParticleSystem menuBoard1;
@@ -52,12 +53,11 @@ public class NextOrderScript : MonoBehaviour
     private GameObject[] avacadoInGame;
     private GameObject[] puffInGame;*/
 
-    /*
-    //Disabled until icons are done
+
     [SerializeField] GameObject menuClam;
     [SerializeField] GameObject menuEel;
     [SerializeField] GameObject menuUrchin;
-    */
+
 
 
     [SerializeField] OrderScript currentOrder;
@@ -89,8 +89,13 @@ public class NextOrderScript : MonoBehaviour
 
             menuSalmon.SetActive(false);
         }
-        /*
-        //Disabled until icons are done
+        if(nextRecipieName.Contains("Avacado")){
+            menuAvacado.SetActive(true);
+        }
+        else{
+            menuAvacado.SetActive(false);
+        }
+        
         if(nextRecipieName.Contains("Kobashira")){
             menuClam.SetActive(true);
         }
@@ -111,7 +116,7 @@ public class NextOrderScript : MonoBehaviour
         else{
             menuUrchin.SetActive(false);
         }
-        */
+        
         
     }
 
