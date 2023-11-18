@@ -70,7 +70,7 @@ public class OrderScript : MonoBehaviour
     [SerializeField] TrashScript trash;
     [SerializeField] NewScoreScript score;
 
-    [HideInInspector] public int currentAddonAmount;
+    /*[HideInInspector]*/ public int currentAddonAmount;
     private bool canNewOrder;
     private void Start(){
         //orderNumber = 1;
@@ -185,7 +185,7 @@ public class OrderScript : MonoBehaviour
             addonNumber = 0;
         }
 
-        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0 && canNewOrder){
+        if(fishNumber == 0 && riceNumber == 0 && addonNumber == 0 && canNewOrder && addon2Number == 0){
             dingSource.Play();
             orderNumber += 1;
             fishNumber = nextOrder.nextfishNumber;
@@ -204,11 +204,13 @@ public class OrderScript : MonoBehaviour
                 menuAddon2.SetActive(true);
                 //addon2Number  = nextOrder.nextaddon2Number;
             }
-            else{
+            else if(currentAddonAmount == 0){
                 addonText.gameObject.SetActive(false);
                 addon2Text.gameObject.SetActive(false);
                 menuAddon2.SetActive(false);
                 menuAddon1.SetActive(false);
+                //addonNumber = 0;
+                //addon2Number = 0;
             }
             recipieText = nextOrder.nextRecipieName;
             currentAddonAmount = nextOrder.nextAddonAmount;
@@ -253,6 +255,13 @@ public class OrderScript : MonoBehaviour
     private IEnumerator OrderDelay(){
         yield return new WaitForSeconds(0.1f);
         canNewOrder = true;
+    }
+
+    private void FixedUpdate(){
+        if(currentAddonAmount == 0){
+            addonNumber = 0;
+            addon2Number = 0;
+        }
     }
 }
 

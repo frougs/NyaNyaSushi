@@ -103,13 +103,13 @@ public class KnifeScript : MonoBehaviour
       }
 
     }
-    private void OnTriggerEnter(Collider collision)
+    /*private void OnTriggerEnter(Collider collision)
    {
         if(collision.gameObject.tag == "Sushi" && moving)
         {
             Destroy(collision.gameObject);
         }
-   }
+   }*/
 
    private void FixedUpdate(){
 

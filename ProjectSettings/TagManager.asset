@@ -21,6 +21,7 @@ TagManager:
   - Mahi
   - Urchin
   - UrchinNoSpikes
+  - Clam
   layers:
   - Default
   - TransparentFX
