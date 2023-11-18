@@ -33,6 +33,7 @@ public class RecipiesScript : MonoBehaviour
 
 
     public void RecipieSelect(int recipieNumber){
+        Debug.Log(recipieNumber);
         if(recipieNumber == 1){
             TunaSushi();
         }
@@ -45,10 +46,10 @@ public class RecipiesScript : MonoBehaviour
         else if(recipieNumber == 4){
             Kobashira();
         }
-        else if(recipieNumber == 5){
+        else if(recipieNumber == 6){
             UnakyuMaki();
         }
-        else if(recipieNumber == 6){
+        else if(recipieNumber == 5){
             SeaUrchin();
         }
 
@@ -77,7 +78,7 @@ public class RecipiesScript : MonoBehaviour
         orders.nextfishNumber = Random.Range(1, maxAFish);
         orders.nextriceNumber = Random.Range(1, maxARice);
         orders.nextaddonNumber = Random.Range(1, maxAvacado);
-        orders.nextAddonAmount = 3;
+        orders.nextAddonAmount = 1;
         var aFish = Random.Range(1, 2);
 
             if(aFish == 1){
@@ -88,7 +89,7 @@ public class RecipiesScript : MonoBehaviour
 
                 rFishName = "Salmon";
             }
-        orders.nextAddonAmount = 1;
+        //orders.nextAddonAmount = 1;
         recipieName = rFishName.ToString() + " sushi with Avacado";    
     }
     void Kobashira(){

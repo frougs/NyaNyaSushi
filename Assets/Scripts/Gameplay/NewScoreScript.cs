@@ -20,11 +20,13 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] GameObject slicedS;
     [SerializeField] GameObject slicedR;
     [SerializeField] GameObject slicedI;
+    [SerializeField] GameObject slicedClam;
     private GameObject slicedTObj;
     private GameObject slicedSObj;
     private GameObject slicesObj;
     private GameObject slicedRObj;
     private GameObject slicedPowerup;
+    private GameObject slicedClamObj;
     private GameObject slicedUObj;
     private GameObject urchinNSObj;
     private bool triggerSound;
@@ -46,14 +48,16 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] int mahiNumSlices;
     public int totalMahiSlices;
     [HideInInspector] public double mahiDiv;
+    [SerializeField] private bool urchinDetect = false;
 
     private void Start(){
         sushiTags.Add("Tuna");
         sushiTags.Add("Salmon");
+        sushiTags.Add("Clam");
+        sushiTags.Add("UrchinNoSpikes");
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
-
         if(other.gameObject.tag == "Mahi" && mahiDetect == true){
             currentMahiSlices += 1;
             triggerSound = true;
@@ -93,11 +97,22 @@ public class NewScoreScript : MonoBehaviour
                 slicedTObj = Instantiate(slicedT, transform);
                 StartCoroutine(Vanish(slicedTObj));
             }
-            else if(other.gameObject.CompareTag("UrchinNoSpikes")){
-                slicedUObj = Instantiate(slicedUrchin, transform);
-                StartCoroutine(Vanish(slicedUObj));
+            else if(urchinDetect){
+                if(other.gameObject.tag == "UrchinNoSpikes"){
+                    Debug.Log("No Spikes");
+                    slicedUObj = Instantiate(slicedUrchin, transform);
+                    StartCoroutine(Vanish(slicedUObj));
+                    Destroy(other.gameObject);
+                }
             }
-            Destroy(other.gameObject);
+            else if(other.gameObject.CompareTag("Clam")){
+                slicedClamObj = Instantiate(slicedClam, transform);
+                StartCoroutine(Vanish(slicedClamObj));
+            }
+            if(other.gameObject.tag != "UrchinNoSpikes"){
+                Debug.Log(other.gameObject.name);
+                Destroy(other.gameObject);
+            }
             triggerSound = true;
         }
         else if (sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() != fishTag || sushiTags.Contains(other.gameObject.tag.ToString()) && moving && other.gameObject.tag.ToString() == fishTag && orders.fishNumber == 0){
@@ -116,7 +131,22 @@ public class NewScoreScript : MonoBehaviour
                 slicedTObj = Instantiate(slicedT, transform);
                 StartCoroutine(Vanish(slicedTObj));
             }
-            Destroy(other.gameObject);
+            else if(other.gameObject.CompareTag("Clam")){
+                slicedClamObj = Instantiate(slicedClam, transform);
+                StartCoroutine(Vanish(slicedClamObj));
+            }
+            else if(urchinDetect){
+                if(other.gameObject.tag == "UrchinNoSpikes"){
+                    Debug.Log("No Spikes");
+                    slicedUObj = Instantiate(slicedUrchin, transform);
+                    StartCoroutine(Vanish(slicedUObj));
+                    Destroy(other.gameObject);
+                }
+            }
+            if(other.gameObject.tag != "UrchinNoSpikes"){
+                Debug.Log(other.gameObject.name);
+                Destroy(other.gameObject);
+            }
             triggerSound = true;
         }
 
@@ -183,8 +213,14 @@ public class NewScoreScript : MonoBehaviour
 
         }
         else if(other.gameObject.CompareTag("Urchin") && moving){
-            urchinNSObj = Instantiate(urchinNoSpikes, transform);
+            Debug.Log("Spawning no spikes");
+            urchinDetect = false;
+            var urchinPos = other.gameObject.transform.position;
+            var urchinRot = other.gameObject.transform.rotation;
+            urchinNSObj = Instantiate(urchinNoSpikes, urchinPos, urchinRot);
             Destroy(other.gameObject);
+            //Debug.Log("Spawned at: " + urchinNSObj.transform.position);
+            StartCoroutine(UrchinDelay());
         }
     }
     private void Update(){
@@ -206,12 +242,20 @@ public class NewScoreScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         //Debug.Log("routine ended");
         Destroy(sliced);
+        //urchinDetect = true;
     }
 
     private void OnTriggerExit(Collider other){
         if(other.gameObject.tag == "Mahi"){
             mahiDetect = true;
         }
+        /*if(other.gameObject.tag == "Urchin"){
+            urchinDetect = true;
+        }*/
+    }
+    private IEnumerator UrchinDelay(){
+        yield return new WaitForSeconds(0.5f);
+        urchinDetect = true;
     }
 
 }
