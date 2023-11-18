@@ -101,8 +101,8 @@ public class RecipiesScript : MonoBehaviour
     void UnakyuMaki(){
         orders.nextfishNumber = Random.Range(1, maxEel);
         orders.nextriceNumber = Random.Range(1, maxUrRice);
-        orders.nextaddonNumber = Random.Range(1, maxUCucumber);
-        orders.nextaddon2Number = Random.Range(1, maxUAvo);
+        orders.nextaddon2Number = Random.Range(1, maxUCucumber);
+        orders.nextaddonNumber = Random.Range(1, maxUAvo);
         orders.nextAddonAmount = 2;
         recipieName = "UnakyuMaki";
     }

@@ -89,7 +89,13 @@ public class NextOrderScript : MonoBehaviour
 
             menuSalmon.SetActive(false);
         }
-        if(nextRecipieName.Contains("Avacado")){
+        /*if(nextRecipieName.Contains("Avacado")){
+            menuAvacado.SetActive(true);
+        }
+        else{
+            menuAvacado.SetActive(false);
+        }*/
+        if(nextAddonAmount == 1 || nextAddonAmount == 2){
             menuAvacado.SetActive(true);
         }
         else{
@@ -137,17 +143,19 @@ public class NextOrderScript : MonoBehaviour
         nextRecipieName = recipies.recipieName;
         fishText.text = nextfishNumber.ToString() + "X";
         riceText.text = nextriceNumber.ToString() + "X";
-        if(nextAddonAmount == 1){
+        addonText.text = nextaddonNumber.ToString() + "X";
+        addon2Text.text = nextaddon2Number.ToString() + "X";
+        if(nextAddonAmount >= 1){
             addonText.gameObject.SetActive(true);
-            addon2Text.gameObject.SetActive(false);
-            menuAddon2.SetActive(false);
+            //addon2Text.gameObject.SetActive(false);
+            //menuAddon2.SetActive(false);
             menuAddon1.SetActive(true);
-            addonText.text = nextaddonNumber.ToString() + "X";
+            //addonText.text = nextaddonNumber.ToString() + "X";
         }
         else if(nextAddonAmount == 2){
             addon2Text.gameObject.SetActive(true);
             menuAddon2.SetActive(true);
-            addon2Text.text = nextaddon2Number.ToString() + "X";
+            //addon2Text.text = nextaddon2Number.ToString() + "X";
         }
         else{
             addonText.gameObject.SetActive(false);

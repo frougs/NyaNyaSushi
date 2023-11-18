@@ -23745,14 +23745,14 @@ MonoBehaviour:
   maxAFish: 0
   maxARice: 2
   maxAvacado: 2
-  maxClam: 0
+  maxClam: 2
   maxKRice: 0
   maxEel: 0
   maxUCucumber: 0
   maxURice: 0
   maxUAvo: 0
-  maxUrchin: 0
-  maxUrRice: 0
+  maxUrchin: 2
+  maxUrRice: 2
 --- !u!212 &1976323231
 SpriteRenderer:
   m_ObjectHideFlags: 0
