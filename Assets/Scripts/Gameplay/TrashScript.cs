@@ -74,6 +74,20 @@ public class TrashScript : MonoBehaviour
             }
 
         }
+        if(other.GetComponent<Collider>().gameObject.tag == "Cucumber" && order.addon2Number == 0){
+            Destroy(other.gameObject);
+        }
+        else if(other.GetComponent<Collider>().gameObject.tag == "Cucumber" && order.addon2Number != 0){
+            if(order.graceCountdown <= 0){
+                lives.lives -= 1;
+                animations.emotion = "dizzy";
+                Destroy(other.gameObject);
+                Debug.Log("Losing Life");
+            }
+            else{
+            Destroy(other.gameObject);
+            }
+        }
         else if(other.GetComponent<Collider>().gameObject.tag == "Puffer" || other.GetComponent<Collider>().gameObject.CompareTag("PowerUp")){
             Destroy(other.gameObject);
         }

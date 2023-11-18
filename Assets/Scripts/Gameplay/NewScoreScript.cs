@@ -8,7 +8,7 @@ public class NewScoreScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score;
     private bool moving;
-    [HideInInspector] public string fishTag;
+    public string fishTag;
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] OrderScript orders;
     [SerializeField] ParticleSystem sweatSystem;
@@ -21,6 +21,8 @@ public class NewScoreScript : MonoBehaviour
     [SerializeField] GameObject slicedR;
     [SerializeField] GameObject slicedI;
     [SerializeField] GameObject slicedClam;
+    [SerializeField] GameObject slicedEel;
+    [SerializeField] GameObject slicedCucumber;
     private GameObject slicedTObj;
     private GameObject slicedSObj;
     private GameObject slicesObj;
@@ -29,6 +31,8 @@ public class NewScoreScript : MonoBehaviour
     private GameObject slicedClamObj;
     private GameObject slicedUObj;
     private GameObject urchinNSObj;
+    private GameObject sliceEelObj;
+    private GameObject sliceCucumberObj;
     private bool triggerSound;
     [SerializeField] NextOrderScript nextOrder;
 
@@ -55,6 +59,7 @@ public class NewScoreScript : MonoBehaviour
         sushiTags.Add("Salmon");
         sushiTags.Add("Clam");
         sushiTags.Add("UrchinNoSpikes");
+        sushiTags.Add("Eel");
         score = 0;
     }
     private void OnTriggerEnter(Collider other){
@@ -109,6 +114,10 @@ public class NewScoreScript : MonoBehaviour
                 slicedClamObj = Instantiate(slicedClam, transform);
                 StartCoroutine(Vanish(slicedClamObj));
             }
+            else if(other.gameObject.CompareTag("Eel")){
+                sliceEelObj = Instantiate(slicedEel, transform);
+                StartCoroutine(Vanish(sliceEelObj));
+            }
             if(other.gameObject.tag != "UrchinNoSpikes"){
                 Debug.Log(other.gameObject.name);
                 Destroy(other.gameObject);
@@ -142,6 +151,10 @@ public class NewScoreScript : MonoBehaviour
                     StartCoroutine(Vanish(slicedUObj));
                     Destroy(other.gameObject);
                 }
+            }
+            else if(other.gameObject.CompareTag("Eel")){
+                sliceEelObj = Instantiate(slicedEel, transform);
+                StartCoroutine(Vanish(sliceEelObj));
             }
             if(other.gameObject.tag != "UrchinNoSpikes"){
                 Debug.Log(other.gameObject.name);
@@ -221,6 +234,23 @@ public class NewScoreScript : MonoBehaviour
             Destroy(other.gameObject);
             //Debug.Log("Spawned at: " + urchinNSObj.transform.position);
             StartCoroutine(UrchinDelay());
+        }
+        else if(other.gameObject.CompareTag("Cucumber") && moving && orders.addon2Number != 0){
+            score += 10;
+            orders.addon2Number -=1;
+            sliceCucumberObj = Instantiate(slicedCucumber, transform);
+            StartCoroutine(Vanish(sliceCucumberObj));
+            animations.emotion = "excited";
+            Destroy(other.gameObject);
+            triggerSound = true;
+        }
+        else if(other.gameObject.CompareTag("Cucumber") && moving && orders.addon2Number <= 0){
+            sliceCucumberObj = Instantiate(slicedCucumber, transform);
+            StartCoroutine(Vanish(sliceCucumberObj));
+            Destroy(other.gameObject);
+            triggerSound = true;
+            animations.emotion = "sad";
+            sweatSystem.Play();
         }
     }
     private void Update(){

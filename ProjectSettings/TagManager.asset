@@ -22,6 +22,8 @@ TagManager:
   - Urchin
   - UrchinNoSpikes
   - Clam
+  - Eel
+  - Cucumber
   layers:
   - Default
   - TransparentFX

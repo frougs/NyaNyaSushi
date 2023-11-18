@@ -61,6 +61,7 @@ public class OrderScript : MonoBehaviour
     private GameObject[] riceInGame;
     private GameObject[] avacadoInGame;
     private GameObject[] puffInGame;
+    private ConveyorScript[] convObjs;
 
     [SerializeField] AudioSource dingSource;
     [SerializeField] OrderCompleteAnimationScript orderAnim;
@@ -69,6 +70,7 @@ public class OrderScript : MonoBehaviour
 
     [SerializeField] TrashScript trash;
     [SerializeField] NewScoreScript score;
+    //[SerializeField] GameObject menuCucumber;
 
     /*[HideInInspector]*/ public int currentAddonAmount;
     private bool canNewOrder;
@@ -122,14 +124,25 @@ public class OrderScript : MonoBehaviour
             finishedSalmon.SetActive(false);
             menuSalmon.SetActive(false);
         }
-        if(recipieText.Contains("Avacado")){
+        /*if(recipieText.Contains("Avacado")){
             finishedAvacado.SetActive(true);
             menuAvacado.SetActive(true);
         }
         else{
             finishedAvacado.SetActive(false);
             menuAvacado.SetActive(false);
+        }*/
+
+        if(currentAddonAmount == 1 || currentAddonAmount == 2){
+            menuAvacado.SetActive(true);
         }
+        else{
+            menuAvacado.SetActive(false);
+        }
+        //if(currentAddonAmount == 2){
+            //menuCucumber.SetActive(true);
+        //}
+
         if(recipieText.Contains("Kobashira")){
             trash.fishTag = "Clam";
             score.fishTag = "Clam";
@@ -162,15 +175,17 @@ public class OrderScript : MonoBehaviour
         recipieName.text = "Recipie: " +recipieText;
         fishText.text = fishNumber.ToString() +"X";
         riceText.text = riceNumber.ToString() +"X";
-        if(currentAddonAmount == 1){
-            addonText.text = addonNumber.ToString() + "X";
+        addonText.text = addonNumber.ToString() + "X";
+        addon2Text.text = addon2Number.ToString() + "X";
+        if(currentAddonAmount >= 1){
+            //addonText.text = addonNumber.ToString() + "X";
             addonText.gameObject.SetActive(true);
         }
-        else if(currentAddonAmount == 2){
-            addon2Text.text = addon2Number.ToString() + "X";
+        if(currentAddonAmount == 2){
+            //addon2Text.text = addon2Number.ToString() + "X";
             addon2Text.gameObject.SetActive(true);
         }
-        else{
+        else if(currentAddonAmount == 0){
             addonText.gameObject.SetActive(false);
             addon2Text.gameObject.SetActive(false);
         }
@@ -192,10 +207,10 @@ public class OrderScript : MonoBehaviour
             riceNumber = nextOrder.nextriceNumber;
             addonNumber = nextOrder.nextaddonNumber;
             addon2Number  = nextOrder.nextaddon2Number;
-            if(currentAddonAmount == 1){
+            if(currentAddonAmount >= 1){
                 addonText.gameObject.SetActive(true);
-                addon2Text.gameObject.SetActive(false);
-                menuAddon2.SetActive(false);
+                //addon2Text.gameObject.SetActive(false);
+                //menuAddon2.SetActive(false);
                 menuAddon1.SetActive(true);
                 //addonNumber = nextOrder.nextaddonNumber;
             }
@@ -230,6 +245,7 @@ public class OrderScript : MonoBehaviour
     }
 
     public void ClearConveyor(){
+        convObjs = FindObjectsOfType<ConveyorScript>();
         tunaInGame = GameObject.FindGameObjectsWithTag("Tuna");
         salmonInGame = GameObject.FindGameObjectsWithTag("Salmon");
         foreach(GameObject tuna in tunaInGame){
@@ -250,6 +266,9 @@ public class OrderScript : MonoBehaviour
         puffInGame = GameObject.FindGameObjectsWithTag("Puffer");
         foreach(GameObject pufferObjects in puffInGame){
             Destroy(pufferObjects);
+        }
+        foreach(ConveyorScript obj in convObjs){
+            Destroy(obj);
         }
     }
     private IEnumerator OrderDelay(){

@@ -13,41 +13,42 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject level4;
     [SerializeField] GameObject level5;
     [SerializeField] GameObject level6;
-    void Start()
+    void Awake()
     {
         if(PlayerPrefs.GetInt("Level") <= 0){
             PlayerPrefs.SetInt("Level", 1); 
             level = 1;
         }
         level = PlayerPrefs.GetInt("Level");
-
+        
+        level2.SetActive(false);
+        level3.SetActive(false);
+        level4.SetActive(false);
+        level5.SetActive(false);
+        level6.SetActive(false);
     }
     
     public void Update(){
-
         
-        if(level == 1){
+        if(level >= 1){
             //Enable level 1 button
             level1.SetActive(true);
-            level2.SetActive(false);
-            level3.SetActive(false);
         }
-        if(level == 2){
+        if(level >= 2){
             //Enable level 2 button
             level2.SetActive(true);
-            level3.SetActive(false);
         }
-        if(level == 3){
+        if(level >= 3){
             //Enable level 3 button
             level3.SetActive(true);
         }
-        if(level == 4){
+        if(level >= 4){
             level4.SetActive(true);
         }
-        if(level == 5){
+        if(level >= 5){
             level5.SetActive(true);
         }
-        if(level == 6){
+        if(level >= 6){
             level6.SetActive(true);
         }
     }
