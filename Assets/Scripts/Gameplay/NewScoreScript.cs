@@ -8,7 +8,7 @@ public class NewScoreScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score;
     private bool moving;
-    [HideInInspector] public string fishTag;
+    public string fishTag;
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] OrderScript orders;
     [SerializeField] ParticleSystem sweatSystem;

@@ -13,7 +13,7 @@ public class BackToMenu : MonoBehaviour
     }
 
     public void OpenCredits(){
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("TempCredits");
     }
 }
 
