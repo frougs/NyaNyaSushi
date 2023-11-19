@@ -50,14 +50,14 @@ public class PowerUpScript : MonoBehaviour
          pufferObjects = FindObjectsOfType<PufferScript>();
         if(conveyorObj != null){
             foreach (ConveyorScript obj in conveyorObjects){
-                obj.GetComponent<ConveyorScript>().sushiSpeed = 0.5f;
+                obj.GetComponent<ConveyorScript>().sushiSpeed = 1.5f;
                 conveyorObj.SetActive(true);
                 //spawnerObj.SetActive(true);
             }
         }
         if(pufferObjects != null){
             foreach (PufferScript obj in pufferObjects){
-                    obj.GetComponent<PufferScript>().pufferSpeed = 0.3f;
+                    obj.GetComponent<PufferScript>().pufferSpeed = 0.5f;
             }
         }
         spawnerObj.SetActive(true);

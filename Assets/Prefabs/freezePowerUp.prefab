@@ -149,8 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
-  sushiSpeed: 0.5
-  endlessAdjustment: 0
+  sushiSpeed: 1.5
   orderNum: 0
 --- !u!114 &1882627471956489490
 MonoBehaviour:

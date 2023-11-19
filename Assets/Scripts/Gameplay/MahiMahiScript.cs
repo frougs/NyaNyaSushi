@@ -5,7 +5,7 @@ using UnityEngine;
 public class MahiMahiScript : MonoBehaviour
 {
     [SerializeField] GameObject mahiMahiObj;
-    [SerializeField] float warnDelayRange;
+    [SerializeField] float warnDelay;
     [SerializeField] private float warnTimer;
     [SerializeField] private bool warnPlayer;
     private GameObject spawnedMahi;
@@ -83,7 +83,7 @@ public class MahiMahiScript : MonoBehaviour
         warnStarted = true;
         Random.InitState(System.DateTime.Now.Millisecond);
         Random.State randomizer = Random.state;
-        warnTimer = Random.Range(0, warnDelayRange);
+        warnTimer = warnDelay;
         warnPlayer = true;
     }
 
