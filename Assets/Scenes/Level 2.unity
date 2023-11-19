@@ -17938,14 +17938,14 @@ MonoBehaviour:
   nextAddonAmount: 0
   menuTuna: {fileID: 1314062325}
   menuSalmon: {fileID: 1295461101}
-  menuAvacado: {fileID: 0}
+  menuAvacado: {fileID: 1854961110}
   menuAddon1: {fileID: 1854961110}
   menuAddon2: {fileID: 1854961110}
   menuBoard1: {fileID: 19028714}
   menuBoard2: {fileID: 553936583}
-  menuClam: {fileID: 0}
-  menuEel: {fileID: 0}
-  menuUrchin: {fileID: 0}
+  menuClam: {fileID: 1854961110}
+  menuEel: {fileID: 1854961110}
+  menuUrchin: {fileID: 1854961110}
   currentOrder: {fileID: 916465961}
   nextRecipieName: 
 --- !u!114 &2143097401
@@ -18424,6 +18424,16 @@ PrefabInstance:
       objectReference: {fileID: 1978539581}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
+      propertyPath: menuEel
+      value: 
+      objectReference: {fileID: 7024124474676459327}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: menuClam
+      value: 
+      objectReference: {fileID: 7024124474676459327}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
       propertyPath: menuTuna
       value: 
       objectReference: {fileID: 1558725695}
@@ -18464,6 +18474,21 @@ PrefabInstance:
       objectReference: {fileID: 937869487}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
+      propertyPath: menuUrchin
+      value: 
+      objectReference: {fileID: 7024124474676459327}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: menuAvacado
+      value: 
+      objectReference: {fileID: 7024124474676459327}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: recipieName
+      value: 
+      objectReference: {fileID: 7024124474676459328}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
       propertyPath: completeAnim
       value: 
       objectReference: {fileID: 237329305}
@@ -18487,6 +18512,11 @@ PrefabInstance:
       propertyPath: finishedAvacado
       value: 
       objectReference: {fileID: 1785763499}
+    - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
+        type: 3}
+      propertyPath: orderNumberText
+      value: 
+      objectReference: {fileID: 7024124474676459328}
     - target: {fileID: 6979849473905209499, guid: 5827e662c2442ed428b599ec53efbe52,
         type: 3}
       propertyPath: numberOfRecipies

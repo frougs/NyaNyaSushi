@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 7787252718184328122}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7916148556097527164
 PrefabInstance:
@@ -109,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Eel_Meat Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031308869678569373, guid: 714e283ba408b34458b9d09bebc5e2b8,
+        type: 3}
+      propertyPath: sushiSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

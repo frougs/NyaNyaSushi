@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
-  sushiSpeed: 0.1
-  endlessAdjustment: 0
+  sushiSpeed: 0.3
   orderNum: 0
 --- !u!54 &860065329568230433
 Rigidbody:

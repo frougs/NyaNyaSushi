@@ -107,7 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   sushiSpeed: 0.4
-  endlessAdjustment: 0
   orderNum: 0
 --- !u!114 &1002490325665963709
 MonoBehaviour:
@@ -121,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310d0136788ab1b4fab4f8b9e40af88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pufferSpeed: 1
 --- !u!1 &4418447856365037855
 GameObject:
   m_ObjectHideFlags: 0
