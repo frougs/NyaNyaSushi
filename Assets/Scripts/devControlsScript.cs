@@ -6,7 +6,7 @@ public class devControlsScript : MonoBehaviour
 {
     public LevelManager levels;
     public void UnlockAllLevels(){
-        PlayerPrefs.SetInt("Level", 7);
+        PlayerPrefs.SetInt("Level", 6);
         levels.level = 6;
     }
 

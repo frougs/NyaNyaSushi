@@ -15,9 +15,5 @@ public class LevelMenu : MonoBehaviour
     public void FestivalMode(){
         SceneManager.LoadScene("Endless");
     }
-
-    public void SecretLevel(){
-        SceneManager.LoadScene("DLC");
-    }
 }
 
