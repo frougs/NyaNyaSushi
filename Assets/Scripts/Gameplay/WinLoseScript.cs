@@ -15,6 +15,7 @@ public class WinLoseScript : MonoBehaviour
     [SerializeField] NyakayamaAnimation animations;
     [SerializeField] int winScore;
     [SerializeField] LevelManager levelMan;
+
     private int score;
     private bool ordersComplete;
     private int lives;
@@ -48,6 +49,12 @@ public class WinLoseScript : MonoBehaviour
         dimObject.SetActive(true);
         PlayerPrefs.SetInt("Lives", 3);
         PlayerPrefs.SetInt("Level", 1);
+        var currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "Endless"){
+            if(PlayerPrefs.GetInt("festHighScore") != 0 && scoreScript.score >= PlayerPrefs.GetInt("festHighScore")){
+                PlayerPrefs.SetInt("festHighScore", scoreScript.score);
+            }
+        }
     }
 
     void Win(){
@@ -59,6 +66,7 @@ public class WinLoseScript : MonoBehaviour
             //levelMan.level = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex + 1);
         }
+        
         PlayerPrefs.SetInt("Lives", lives);
         
     }

@@ -736,7 +736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc662facdfa01ed4e819056f59ebe878, type: 2}
+  - {fileID: 2100000, guid: 794294ee4d9868b4a8d2d8fcc8f7216a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9805,6 +9805,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerPowerup: 0
   freezeTime: 2.67
+--- !u!1 &1082925120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082925122}
+  - component: {fileID: 1082925121}
+  m_Layer: 0
+  m_Name: MahiMahiSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1082925121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082925120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91183d548d532b84094bcb4af23f3f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mahiMahiObj: {fileID: 6659639510093444800, guid: 2da10483d8245234dbed2a1494fe1bce,
+    type: 3}
+  warnDelay: 3
+  warnTimer: 0
+  warnPlayer: 0
+  spawnerObj: {fileID: 1743789369}
+  spawnDelayRange: 45
+  spawnTimer: 0
+  startSpawnCD: 0
+  warningText: {fileID: 829828865}
+  warningAnim: {fileID: 829828867}
+  score: {fileID: 354637626}
+  mahiBase: {fileID: 2100000, guid: 403a3d0e936d6da46aacbb112c1500a8, type: 2}
+  mahiOneSlash: {fileID: 2100000, guid: 478eca443e4c6d54e80a1d3c42ff76c0, type: 2}
+  mahiTwoSlash: {fileID: 2100000, guid: a1d3561a9e741e4459b61127ab92a74f, type: 2}
+  mahiThreeSlash: {fileID: 2100000, guid: 6d5d3206a9151aa48bfa1e27262bc596, type: 2}
+--- !u!4 &1082925122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082925120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.391, y: 2.529, z: 3.907}
+  m_LocalScale: {x: 1, y: 1, z: 1.3812885}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130121082
 GameObject:
   m_ObjectHideFlags: 0
