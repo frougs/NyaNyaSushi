@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TempCredits.unity
     guid: 38ec0f9266721c445b818067e460cbce
+  - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: 1d61fa531455fe74bb52e488dd55d020
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1fadccae8e132d644b136b2e9151364c,
       type: 2}
