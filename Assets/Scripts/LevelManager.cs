@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject level4;
     [SerializeField] GameObject level5;
     [SerializeField] GameObject level6;
+    [SerializeField] GameObject secretLevel;
     void Awake()
     {
         if(PlayerPrefs.GetInt("Level") <= 0){
@@ -26,6 +27,7 @@ public class LevelManager : MonoBehaviour
         level4.SetActive(false);
         level5.SetActive(false);
         level6.SetActive(false);
+        secretLevel.SetActive(false);
     }
     
     public void Update(){
@@ -50,6 +52,9 @@ public class LevelManager : MonoBehaviour
         }
         if(level >= 6){
             level6.SetActive(true);
+        }
+        if(level >= 7){
+            secretLevel.SetActive(true);
         }
     }
 

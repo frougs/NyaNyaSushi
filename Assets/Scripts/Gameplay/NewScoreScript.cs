@@ -206,7 +206,7 @@ public class NewScoreScript : MonoBehaviour
         else if(other.gameObject.CompareTag("Puffer") && moving){
             animations.emotion = "dizzy";
             sweatSystem.Play();
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
             pufferSource.Play();
             nextOrder.GenerateOrder();
             lives.lives -= 1;
