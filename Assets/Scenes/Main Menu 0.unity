@@ -1160,24 +1160,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222762268}
   m_CullTransparentMesh: 1
---- !u!1 &237272320 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9037911527271378057, guid: 8890275c9839a52409f254cfe326f695,
-    type: 3}
-  m_PrefabInstance: {fileID: 1297022200}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &237272321 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5055787665678116222, guid: 8890275c9839a52409f254cfe326f695,
-    type: 3}
-  m_PrefabInstance: {fileID: 1297022200}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &237272322 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4358444500227863244, guid: 8890275c9839a52409f254cfe326f695,
-    type: 3}
-  m_PrefabInstance: {fileID: 1297022200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &258573533
 GameObject:
   m_ObjectHideFlags: 0
@@ -9097,10 +9079,9 @@ MonoBehaviour:
   level1: {fileID: 1943989291}
   level2: {fileID: 1342542209}
   level3: {fileID: 2019472738}
-  level4: {fileID: 237272322}
-  level5: {fileID: 237272321}
-  level6: {fileID: 237272320}
-  secretLevel: {fileID: 285797408}
+  level4: {fileID: 685252022}
+  level5: {fileID: 2125667679}
+  level6: {fileID: 608890990}
 --- !u!4 &1597682580
 Transform:
   m_ObjectHideFlags: 0
