@@ -5490,7 +5490,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240640114}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &254507940
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5684,7 +5683,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
---- !u!1001 &254507940
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
