@@ -69,6 +69,7 @@ public class NewScoreScript : MonoBehaviour
             mahiSlices = other.gameObject.transform.Find("sliceCount").GetComponent<TextMeshPro>();
             mahiSlices.text = currentMahiSlices +" / " +totalMahiSlices;
             if(currentMahiSlices >= totalMahiSlices){
+                score +=10 * totalMahiSlices;
                 Destroy(other.gameObject);
                 mahiScript.MahiDestroyed();
                 mSliceObj = Instantiate(mahiSliceObj, transform);

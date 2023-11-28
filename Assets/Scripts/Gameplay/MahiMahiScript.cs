@@ -30,7 +30,9 @@ public class MahiMahiScript : MonoBehaviour
     }
 
     private void Update(){
-
+        if(spawnedMahi != null){
+            Debug.Log(spawnedMahi.transform.position);
+        }
         if(spawned && spawnedMahi != null){
             spawnerObj.SetActive(false);
         }
